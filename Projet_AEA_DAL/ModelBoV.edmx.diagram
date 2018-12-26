@@ -6,9 +6,9 @@
     <edmx:Diagrams>
       <Diagram DiagramId="fcc5101ad47d4e5ba1c67089d0fed8e4" Name="Diagram1">
         <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Campagne" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.CampagneClient" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.CampagneClient" Width="1.5" PointX="3.375" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="BOVOYAGE_AEAModel.CarteBancaire" Width="1.5" PointX="5.625" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Client" Width="1.5" PointX="1" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Client" Width="1.5" PointX="8.625" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Continent" Width="1.5" PointX="1.5" PointY="15.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Dossier" Width="1.5" PointX="6" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Pay" Width="1.5" PointX="1.5" PointY="12.25" IsExpanded="true" />
