@@ -11,13 +11,13 @@ namespace Projet_AEA_DTO
         public long ContinentID;
         public string LibelleContinent;
     }
-    /* public class dtoListePays
+    public class dtoListePays
     {
         public long PaysID;
         public string NomP;
         public long ContinentID;
     }
-    public class dtoListeRegion
+    /*public class dtoListeRegion
     {
         public long RegionID;
         public string NomR;

@@ -14,6 +14,7 @@ namespace Projet_AEA_UIL.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            var listePays = MetierPool.GetListePays();
             var listeContinent = MetierPool.GetListeContinent();
             List<Continents> modelContinent = new List<Continents>();
 

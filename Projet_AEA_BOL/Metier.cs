@@ -15,12 +15,13 @@ namespace Projet_AEA_BOL
             return Continent.GetListeContinent();
         }
 
-        /*public static IEnumerable<dtoListePays> GetListePays()
+        public static IEnumerable<dtoListePays> GetListePays()
         {
             return Pays.GetListePays();
         }
 
-        public static IEnumerable<dtoListeRegion> GetListeRegion()
+        
+        /*public static IEnumerable<dtoListeRegion> GetListeRegion()
         {
             return Region.GetListeRegion();
         }
@@ -49,7 +50,7 @@ namespace Projet_AEA_BOL
         }
     }
 
-    /*public class Pays
+    public class Pays
     {
         public static IEnumerable<dtoListePays> GetListePays()
         {
@@ -57,7 +58,7 @@ namespace Projet_AEA_BOL
         }
     }
 
-    public class Region
+    /*public class Region
     {
 
         public static IEnumerable<dtoListeRegion> GetListeRegion()
