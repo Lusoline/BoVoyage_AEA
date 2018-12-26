@@ -70,6 +70,15 @@
     <Compile Include="GetListeContinents_Result.cs">
       <DependentUpon>ModelBoV.tt</DependentUpon>
     </Compile>
+    <Compile Include="GetListePays_Result.cs">
+      <DependentUpon>ModelBoV.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetListeRegion_Result.cs">
+      <DependentUpon>ModelBoV.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetListeVoyage_Result.cs">
+      <DependentUpon>ModelBoV.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelBoV.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -101,12 +110,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BOVOYAGE_AEA_data.sql" />
     <Content Include="BOVOYAGE_AEA_database.sql" />
-    <Content Include="DATA.sql" />
     <Content Include="ModelBoV.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelBoV.Context.cs</LastGenOutput>
       <DependentUpon>ModelBoV.edmx</DependentUpon>
+      <LastGenOutput>ModelBoV.Context.cs</LastGenOutput>
     </Content>
     <Content Include="ModelBoV.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -121,7 +130,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="ModelBoV.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelBoV.Designer.cs</LastGenOutput>

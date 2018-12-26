@@ -27,7 +27,7 @@ namespace Projet_AEA_DAL
         public string PrenomClient { get; set; }
         public System.DateTime DateNaissanceClient { get; set; }
         public string EmailClient { get; set; }
-        public int TelephoneClient { get; set; }
+        public string TelephoneClient { get; set; }
         public string VilleClient { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

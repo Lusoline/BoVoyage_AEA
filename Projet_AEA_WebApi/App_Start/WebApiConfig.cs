@@ -12,13 +12,31 @@ namespace Projet_AEA_WebApi
     {
         public static void Register(HttpConfiguration config)
         {
-            // Configuration et services de l'API Web
+
+            // Configuration et services API Web
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
+            // Itinéraires de l'API Web
+            config.EnableCors();
+
             // Configurer l'API Web pour utiliser uniquement l'authentification de jeton du porteur.
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
             // Itinéraires de l'API Web
             config.MapHttpAttributeRoutes();
+
+            //api/voyage/Pay/Continent/reg
+                config.Routes.MapHttpRoute(
+                name: "DefaultApiVoy",
+                routeTemplate: "api/{controller}/{Pay}/{Continent}/{reg}"
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultApiReg",
+                routeTemplate: "api/{controller}/{Pay}/{Continent}",
+                defaults: new { id = RouteParameter.Optional }
+            );
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

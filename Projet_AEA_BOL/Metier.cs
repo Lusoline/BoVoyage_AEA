@@ -8,79 +8,63 @@ using Projet_AEA_DAL;
 
 namespace Projet_AEA_BOL
 {
-    public class MetierPool
+    public static class MetierPool
     {
+       
+
+        public static IEnumerable<dtoListePays> GetListePays(int idContinent)
+        {
+            return Pays.GetListePays(idContinent);
+        }
+
         public static IEnumerable<dtoListeContinent> GetListeContinent()
         {
             return Continent.GetListeContinent();
         }
 
-        public static IEnumerable<dtoListePays> GetListePays()
+        public static IEnumerable<dtoListeRegion> GetListeRegion(int idPays, int idContinent)
         {
-            return Pays.GetListePays();
+            return Region.GetListeRegion(idPays, idContinent);
         }
 
-        
-        /*public static IEnumerable<dtoListeRegion> GetListeRegion()
-        {
-            return Region.GetListeRegion();
-        }
-
-        public static IEnumerable<dtoListeVoyage> GetListeVoyage()
+        /*public static IEnumerable<dtoListeVoyage> GetListeVoyage()
         {
             return Voyage.GetListeVoyage();
-        }
-
-        public static int EnregistreDossier(long choixV, string emailAdress, string numCarte, int nbVoyageur)
-        {
-            return Dossier.EnregistreDossier(choixV, emailAdress, numCarte, nbVoyageur);
         }*/
+    }
+
+    public static class Pays
+    {
+        public static IEnumerable<dtoListePays> GetListePays(int idContinent)
+        {
+            return Repository.GetListePays(idContinent);
+        }
     }
 
     public class Continent
     {
-        private static Repository DAL_Repository = new Repository();
-
-        //public long ContinentID { get; set; }
-        //public string LibelleContinent { get; set; }
 
         public static IEnumerable<dtoListeContinent> GetListeContinent()
-        {            
+        {
             return Repository.GetListeContinent();
         }
     }
 
-    public class Pays
-    {
-        public static IEnumerable<dtoListePays> GetListePays()
-        {
-            return Repository.GetListePays();
-        }
-    }
-
-    /*public class Region
+    public class Region
     {
 
-        public static IEnumerable<dtoListeRegion> GetListeRegion()
+        public static IEnumerable<dtoListeRegion> GetListeRegion(int idPays, int idContinent)
         {
-            return Repository.GetListeRegion();
+            return Repository.GetListeRegion(idPays, idContinent);
         }
     }
 
     public class Voyage
     {
 
-        public static IEnumerable<dtoListeVoyage> GetListeVoyage()
+        /*public static IEnumerable<dtoListeVoyage> GetListeVoyage()
         {
             return Repository.GetListeVoyage();
-        }
+        }*/
     }
-
-    public class Dossier
-    {
-        public static int EnregistreDossier(long choixV, string emailAdress, string numCarte, int nbVoyageur)
-        {
-            return Repository.EnregistreDossier(choixV, emailAdress, numCarte, nbVoyageur);
-        }
-    }*/
 }

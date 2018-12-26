@@ -22,7 +22,7 @@ namespace Projet_AEA_DAL
     
         public long DossierID { get; set; }
         public int NbVoyageurDossier { get; set; }
-        public int NumCB { get; set; }
+        public string NumCB { get; set; }
         public string EmailClient { get; set; }
         public Nullable<long> VoyageID { get; set; }
         public Nullable<long> CarteBancaireID { get; set; }

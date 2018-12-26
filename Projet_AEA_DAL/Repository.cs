@@ -9,38 +9,45 @@ namespace Projet_AEA_DAL
 {
     public class Repository
     {
-        private static BOVOYAGE_AEAEntities BoVContext = new BOVOYAGE_AEAEntities();
-        public static List<dtoListeContinent> GetListeContinent()
+        public static BOVOYAGE_AEAEntities BoVContext = new BOVOYAGE_AEAEntities();
+
+
+        public static IEnumerable<dtoListePays> GetListePays(int idContinent)
         {
-            List<dtoListeContinent> resultat = new List<dtoListeContinent>();
-            foreach (var c in BoVContext.Continents)
+            var data = BoVContext.GetListePays(idContinent);
+
+            var resultat = new List<dtoListePays>();
+            foreach (var lp in data)
             {
-                resultat.Add(new dtoListeContinent { ContinentID = c.ContinentID, LibelleContinent = c.LibelleContinent });
+                resultat.Add(new dtoListePays { PaysID = lp.PaysID, LibellePays = lp.LibellePays });
+            }
+            return resultat;
+        }
+        public static IEnumerable<dtoListeContinent> GetListeContinent()
+        {
+            var data = BoVContext.GetListeContinents();
+
+            var resultat = new List<dtoListeContinent>();
+            foreach (var lc in data)
+            {
+                resultat.Add(new dtoListeContinent { ContinentID = lc.ContinentID, LibelleContinent = lc.LibelleContinent });
             }
             return resultat;
         }
 
-        public static IEnumerable<dtoListePays> GetListePays()
+        public static IEnumerable<dtoListeRegion> GetListeRegion(int idPays, int idContinent)
         {
-            List<dtoListePays> resultat = new List<dtoListePays>();
-            foreach (var p in BoVContext.Pays)
+            var data = BoVContext.GetListeRegion(idPays, idContinent);
+
+            var resultat = new List<dtoListeRegion>();
+            foreach (var lr in data)
             {
-                resultat.Add(new dtoListePays { PaysID = p.PaysID, NomP = p.NomP, ContinentID = p.ContinentID });
+                resultat.Add(new dtoListeRegion { RegionID = lr.RegionID, LibelleRegion = lr.LibelleRegion });
             }
             return resultat;
         }
 
-        /*public static IEnumerable<dtoListeRegion> GetListeRegion()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static IEnumerable<dtoListeVoyage> GetListeVoyage()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static int EnregistreDossier(long choixV, string emailAdress, string numCarte, int nbVoyageur)
+        /*public static IEnumerable<dtoListeVoyage> GetListeVoyage()
         {
             throw new NotImplementedException();
         }*/

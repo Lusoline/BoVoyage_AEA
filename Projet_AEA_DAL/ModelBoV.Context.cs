@@ -42,5 +42,44 @@ namespace Projet_AEA_DAL
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetListeContinents_Result>("GetListeContinents");
         }
+    
+        public virtual ObjectResult<GetListePays_Result> GetListePays(Nullable<int> choixContinentID)
+        {
+            var choixContinentIDParameter = choixContinentID.HasValue ?
+                new ObjectParameter("choixContinentID", choixContinentID) :
+                new ObjectParameter("choixContinentID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetListePays_Result>("GetListePays", choixContinentIDParameter);
+        }
+    
+        public virtual ObjectResult<GetListeRegion_Result> GetListeRegion(Nullable<int> choixPaysID, Nullable<int> choixContinentID)
+        {
+            var choixPaysIDParameter = choixPaysID.HasValue ?
+                new ObjectParameter("choixPaysID", choixPaysID) :
+                new ObjectParameter("choixPaysID", typeof(int));
+    
+            var choixContinentIDParameter = choixContinentID.HasValue ?
+                new ObjectParameter("choixContinentID", choixContinentID) :
+                new ObjectParameter("choixContinentID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetListeRegion_Result>("GetListeRegion", choixPaysIDParameter, choixContinentIDParameter);
+        }
+    
+        public virtual ObjectResult<GetListeVoyage_Result> GetListeVoyage(Nullable<int> choixContinentID, Nullable<int> choixPaysID, Nullable<int> choixRegionID)
+        {
+            var choixContinentIDParameter = choixContinentID.HasValue ?
+                new ObjectParameter("choixContinentID", choixContinentID) :
+                new ObjectParameter("choixContinentID", typeof(int));
+    
+            var choixPaysIDParameter = choixPaysID.HasValue ?
+                new ObjectParameter("choixPaysID", choixPaysID) :
+                new ObjectParameter("choixPaysID", typeof(int));
+    
+            var choixRegionIDParameter = choixRegionID.HasValue ?
+                new ObjectParameter("choixRegionID", choixRegionID) :
+                new ObjectParameter("choixRegionID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetListeVoyage_Result>("GetListeVoyage", choixContinentIDParameter, choixPaysIDParameter, choixRegionIDParameter);
+        }
     }
 }

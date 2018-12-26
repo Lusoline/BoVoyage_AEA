@@ -10,22 +10,11 @@
 namespace Projet_AEA_DAL
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Pay
+    public partial class GetListePays_Result
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Pay()
-        {
-            this.Regions = new HashSet<Region>();
-        }
-    
         public long PaysID { get; set; }
         public string LibellePays { get; set; }
         public long ContinentID { get; set; }
-    
-        public virtual Continent Continent { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Region> Regions { get; set; }
     }
 }
