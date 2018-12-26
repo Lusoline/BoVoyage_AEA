@@ -20,12 +20,17 @@ namespace Projet_AEA_DAL
             return resultat;
         }
 
-        /*public static IEnumerable<dtoListePays> GetListePays()
+        public static IEnumerable<dtoListePays> GetListePays()
         {
-            throw new NotImplementedException();
+            List<dtoListePays> resultat = new List<dtoListePays>();
+            foreach (var p in BoVContext.Pays)
+            {
+                resultat.Add(new dtoListePays { PaysID = p.PaysID, NomP = p.NomP, ContinentID = p.ContinentID });
+            }
+            return resultat;
         }
 
-        public static IEnumerable<dtoListeRegion> GetListeRegion()
+        /*public static IEnumerable<dtoListeRegion> GetListeRegion()
         {
             throw new NotImplementedException();
         }
