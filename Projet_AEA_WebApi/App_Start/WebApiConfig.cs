@@ -21,6 +21,27 @@ namespace Projet_AEA_WebApi
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
+            name: "route3",
+            routeTemplate: "api/Pays",
+            defaults: new
+            {
+            controller = "Pays",
+            idContinent = RouteParameter.Optional,
+            }
+            );
+
+
+            config.Routes.MapHttpRoute(
+              name: "route2",
+              routeTemplate: "api/Continent",
+              defaults: new
+              {
+                  controller = "Continent",
+                  idContinent = RouteParameter.Optional,
+              }
+          );
+
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }

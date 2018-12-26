@@ -49,70 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Campagne.cs">
-      <DependentUpon>ModelBoV.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CampagneClient.cs">
-      <DependentUpon>ModelBoV.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarteBancaire.cs">
-      <DependentUpon>ModelBoV.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Client.cs">
-      <DependentUpon>ModelBoV.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Continent.cs">
-      <DependentUpon>ModelBoV.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Dossier.cs">
-      <DependentUpon>ModelBoV.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GetListeContinents_Result.cs">
-      <DependentUpon>ModelBoV.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelBoV.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelBoV.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelBoV.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelBoV.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelBoV.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelBoV.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Pay.cs">
-      <DependentUpon>ModelBoV.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Region.cs">
-      <DependentUpon>ModelBoV.tt</DependentUpon>
-    </Compile>
     <Compile Include="Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Voyage.cs">
-      <DependentUpon>ModelBoV.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Voyageur.cs">
-      <DependentUpon>ModelBoV.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="BOVOYAGE_AEA_database.sql" />
     <Content Include="DATA.sql" />
-    <Content Include="ModelBoV.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelBoV.Context.cs</LastGenOutput>
-      <DependentUpon>ModelBoV.edmx</DependentUpon>
-    </Content>
-    <Content Include="ModelBoV.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelBoV.edmx</DependentUpon>
-      <LastGenOutput>ModelBoV.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Projet_AEA_DTO\Projet_AEA_DTO.csproj">
@@ -122,13 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="ModelBoV.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelBoV.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="ModelBoV.edmx.diagram">
-      <DependentUpon>ModelBoV.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

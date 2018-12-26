@@ -1,39 +1,45 @@
-﻿@model IEnumerable<Projet_AEA_UIL.Models.Continents>
-
+﻿
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ContinentID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LibelleContinent)
-        </th>
-        <th></th>
-    </tr>
+<select id="conti">
+    <option value="-1">Choisissez un continent</option>
+</select>
+<br />
+<select id="pays">
+    <option value="-1">Choisissez un pays</option>
+</select>
+<table class="table"></table>
+@section scripts{
+    <script>
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:49964/api/Continent',
+            success: function (data) {
+                $(data).each(function () {
+                    $('#conti').append('<option value="' + this.ContinentID + '">' + this.LibelleContinent + '</option>')
+                })
+            },
+            error: function (xhr, err, msg) {
+                alert('Chargement des continents impossible');
+            }
+        });
+     
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:49964/api/Pays',
+            success: function (data) {
+                $(data).each(function () {
+                    $('#pays').append('<option value="' + this.PaysID + '">' + this.LibellePays + '</option>');
+                })
+            },
+            error: function (xhr, err, msg) {
+                alert('Chargement des continents impossible');
+            }
+        });
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContinentID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LibelleContinent)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
+    </script>
 }
-
-</table>

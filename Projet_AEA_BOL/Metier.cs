@@ -8,19 +8,21 @@ using Projet_AEA_DAL;
 
 namespace Projet_AEA_BOL
 {
-    public class MetierPool
+    public static class MetierPool
     {
-        public static IEnumerable<dtoListeContinent> GetListeContinent()
+       
+
+        public static List<dtoListePays> GetListePays(int idContinent)
+        {
+            return Pays.GetListePays(idContinent);
+        }
+
+        public static List<dtoListeContinent> GetListeContinent()
         {
             return Continent.GetListeContinent();
         }
 
-        public static IEnumerable<dtoListePays> GetListePays()
-        {
-            return Pays.GetListePays();
-        }
 
-        
         /*public static IEnumerable<dtoListeRegion> GetListeRegion()
         {
             return Region.GetListeRegion();
@@ -37,24 +39,33 @@ namespace Projet_AEA_BOL
         }*/
     }
 
-    public class Continent
+    public static class Pays
     {
         private static Repository DAL_Repository = new Repository();
-
-        //public long ContinentID { get; set; }
-        //public string LibelleContinent { get; set; }
-
-        public static IEnumerable<dtoListeContinent> GetListeContinent()
-        {            
-            return Repository.GetListeContinent();
+        public static List<dtoListePays> GetListePays(int idContinent)
+        {
+            var liste = DAL_Repository.GetListePays(idContinent);
+            var resultat = new List<dtoListePays>();
+            foreach (var dto in liste)
+            {
+                resultat.Add(new dtoListePays { PaysID = dto.PaysID, NomP = dto.NomP, ContinentID = dto.ContinentID });
+            }
+            return resultat;
         }
     }
 
-    public class Pays
+    public static class Continent
     {
-        public static IEnumerable<dtoListePays> GetListePays()
-        {
-            return Repository.GetListePays();
+        private static Repository DAL_Repository = new Repository();
+        public static List<dtoListeContinent> GetListeContinent()
+        {            
+            var liste = DAL_Repository.GetListeContinent();
+            var resultat = new List<dtoListeContinent>();
+            foreach (var dto in liste)
+            {
+                resultat.Add(new dtoListeContinent { ContinentID = dto.ContinentID, LibelleContinent = dto.LibelleContinent });
+            }
+            return resultat;
         }
     }
 

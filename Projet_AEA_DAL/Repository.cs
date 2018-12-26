@@ -9,23 +9,25 @@ namespace Projet_AEA_DAL
 {
     public class Repository
     {
-        private static BOVOYAGE_AEAEntities BoVContext = new BOVOYAGE_AEAEntities();
-        public static List<dtoListeContinent> GetListeContinent()
+        private BOVOYAGE_AEAEntities BoVContext = new BOVOYAGE_AEAEntities();
+
+
+        public List<dtoListePays> GetListePays(int idContinent)
         {
-            List<dtoListeContinent> resultat = new List<dtoListeContinent>();
-            foreach (var c in BoVContext.Continents)
+            List<dtoListePays> resultat = new List<dtoListePays>();
+            foreach (var p in BoVContext.GetListePays(idContinent))
             {
-                resultat.Add(new dtoListeContinent { ContinentID = c.ContinentID, LibelleContinent = c.LibelleContinent });
+                resultat.Add(new dtoListePays { PaysID = p.PaysID, NomP = p.Li, ContinentID = p.ContinentID });
             }
             return resultat;
         }
 
-        public static IEnumerable<dtoListePays> GetListePays()
+        public List<dtoListeContinent> GetListeContinent()
         {
-            List<dtoListePays> resultat = new List<dtoListePays>();
-            foreach (var p in BoVContext.Pays)
+            var resultat = new List<dtoListeContinent>();
+            foreach (var c in BoVContext.GetListeContinents())
             {
-                resultat.Add(new dtoListePays { PaysID = p.PaysID, NomP = p.NomP, ContinentID = p.ContinentID });
+                resultat.Add(new dtoListeContinent { ContinentID = c.ContinentID, LibelleContinent = c.LibelleContinent });
             }
             return resultat;
         }

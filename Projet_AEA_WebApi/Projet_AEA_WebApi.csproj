@@ -240,8 +240,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ContinentController.cs" />
+    <Compile Include="Controllers\PaysController.cs" />
+    <Compile Include="Controllers\RegionController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\VoyageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -349,13 +352,13 @@
       <Project>{4ef9a0ad-1bc4-4b39-af6c-152c930ac53b}</Project>
       <Name>Projet_AEA_BOL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Projet_AEA_DAL\Projet_AEA_DAL.csproj">
+      <Project>{6e639eff-691b-42f4-b0ee-785c5b2fed05}</Project>
+      <Name>Projet_AEA_DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Projet_AEA_DTO\Projet_AEA_DTO.csproj">
       <Project>{75404376-f642-4c60-b721-dfc8ae8f2f6c}</Project>
       <Name>Projet_AEA_DTO</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Projet_AEA_UIL\Projet_AEA_UIL.csproj">
-      <Project>{6386748f-961d-476b-8967-3fac00f9488c}</Project>
-      <Name>Projet_AEA_UIL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

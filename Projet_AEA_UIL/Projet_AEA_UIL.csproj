@@ -209,6 +209,10 @@
       <Project>{75404376-f642-4c60-b721-dfc8ae8f2f6c}</Project>
       <Name>Projet_AEA_DTO</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Projet_AEA_WebApi\Projet_AEA_WebApi.csproj">
+      <Project>{7b4dec80-55af-4bf7-8e25-522937fa13a2}</Project>
+      <Name>Projet_AEA_WebApi</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
