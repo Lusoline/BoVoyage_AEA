@@ -1,7 +1,14 @@
 ﻿use BOVOYAGE_AEA
 go
 
-/*Insert du contenu de la table Continent*/
+
+
+/*==================================================================================================================================================== */
+/****** Object:  INSERT BOVOYAGE_AEA_DATA.SQL ******/
+/*==================================================================================================================================================== */
+/*==================================================================================================================================================== */
+/****** Object:  INSERTIONS DE CONTENU DANS LA TABLE CONTINENT ******/
+/*==================================================================================================================================================== */
 
 insert into Continent (LibelleContinent) values ('Afrique')
 insert into Continent (LibelleContinent) values ('Amérique')
@@ -9,7 +16,9 @@ insert into Continent (LibelleContinent) values ('Asie')
 insert into Continent (LibelleContinent) values ('Europe')
 insert into Continent (LibelleContinent) values ('Océanie')
 
-/*Insert du contenu de la table Pays*/
+/*==================================================================================================================================================== */
+/****** Object:  INSERTIONS DE CONTENU DANS LA TABLE PAYS ******/
+/*==================================================================================================================================================== */
 
 Insert into Pays (LibellePays,ContinentID) values ('Afrique du sud',1)
 Insert into Pays (LibellePays,ContinentID) values ('Ethiopie',1)
@@ -23,7 +32,9 @@ Insert into Pays (LibellePays,ContinentID) values ('Australie',5)
 Insert into Pays (LibellePays,ContinentID) values ('Nouvelle zélande',5)
 go
 
-/*Insert du contenu de la table Région*/
+/*==================================================================================================================================================== */
+/****** Object:  INSERTIONS DE CONTENU DANS LA TABLE REGION ******/
+/*==================================================================================================================================================== */
 
 insert into Region (LibelleRegion, PaysID) values ('Gauteng', 1)
 insert into Region (LibelleRegion, PaysID) values ('Northern Cap', 1)
@@ -47,9 +58,10 @@ insert into Region (LibelleRegion, PaysID) values ('Aukland', 10)
 insert into Region (LibelleRegion, PaysID) values ('Taranaki', 10)
 go
 
-/*Insert du contenu de la table Voyage*/
+/*==================================================================================================================================================== */
+/****** Object:  INSERTIONS DE CONTENU DANS LA TABLE VOYAGE ******/
+/*==================================================================================================================================================== */
 
-insert into Voyage (LibelleVoyage, DescriptifVoyage, DateDepartVoyage, DateRetourVoyage, DisponibiliteVoyage, PrixVoyage, RegionID) values ('Pretoria'           , 'Visitez le parc naturelde Pretoria et perdez vous dans les botanical garden.'																	, CONVERT(datetime2(7),'30/12/2018',103), CONVERT(datetime2(7),'03/01/2019',103), 6, 1200	  , 1)
 insert into Voyage (LibelleVoyage, DescriptifVoyage, DateDepartVoyage, DateRetourVoyage, DisponibiliteVoyage, PrixVoyage, RegionID) values ('Pretoria'           , 'Visitez le parc naturelde Pretoria et perdez vous dans les botanical garden.'																	, CONVERT(datetime2(7),'30/12/2018',103), CONVERT(datetime2(7),'30/12/2019',103), 6, 1200	  , 1)      /* http://magictravelstours.com/wp-content/uploads/2017/01/P-2-800.jpg'	)																																																	*/																																																	
 insert into Voyage (LibelleVoyage, DescriptifVoyage, DateDepartVoyage, DateRetourVoyage, DisponibiliteVoyage, PrixVoyage, RegionID) values ('Soweto'             , 'Découvrez le Musée Apartheid ainsi que le gold reef city.'																						, CONVERT(datetime2(7),'24/01/2019',103), CONVERT(datetime2(7),'24/01/2020',103), 12, 1050.50 , 1)      /* http://magictravelstours.com/wp-content/uploads/2017/01/S-2-800.jpg')																																																	*/
 insert into Voyage (LibelleVoyage, DescriptifVoyage, DateDepartVoyage, DateRetourVoyage, DisponibiliteVoyage, PrixVoyage, RegionID) values ('Désert de Kalahari' , 'Participez à un de nos differents safari organisés et rencontrez les habitants bushmen.'														, CONVERT(datetime2(7),'02/04/2020',103), CONVERT(datetime2(7),'02/04/2021',103), 3, 2500     , 2)      /* https://www.exclusivetours.com/uploaded/product/main_img/800/titulka_5.jpg')																																																*/
@@ -77,7 +89,7 @@ insert into Voyage (LibelleVoyage, DescriptifVoyage, DateDepartVoyage, DateRetou
 insert into Voyage (LibelleVoyage, DescriptifVoyage, DateDepartVoyage, DateRetourVoyage, DisponibiliteVoyage, PrixVoyage, RegionID) values ('Gospic'             , 'De magnifiques montagnes à perte de vue'																										, CONVERT(datetime2(7),'12/04/2020',103), CONVERT(datetime2(7),'12/04/2021',103), 15, 1500    , 13)     /* http://www.hotelstaralika.hr/wp-content/uploads/2017/08/paklenica-01.jpg')																																																*/
 insert into Voyage (LibelleVoyage, DescriptifVoyage, DateDepartVoyage, DateRetourVoyage, DisponibiliteVoyage, PrixVoyage, RegionID) values ('Senj'               , 'Jouez dans la neige avec vos enfants pour un week-end reposant en famille'																		, CONVERT(datetime2(7),'10/10/2021',103), CONVERT(datetime2(7),'10/10/2022',103), 3, 1000     , 13)     /* https://gezimanya.com/sites/default/files/styles/800x600_height/public/1_239.jpg?itok=vR1h4gJk')																																											*/
 insert into Voyage (LibelleVoyage, DescriptifVoyage, DateDepartVoyage, DateRetourVoyage, DisponibiliteVoyage, PrixVoyage, RegionID) values ('Djakovo'            , 'Emmenez vos amis en randonnée dans cette magnifique vallée nichée au creux de la montagne'														, CONVERT(datetime2(7),'22/01/2022',103), CONVERT(datetime2(7),'22/01/2023',103), 90, 2300    , 14)     /* https://www.hrt.hr/media/tt_news/118765_d6b3ca862bc338df8b202.jpg')																																																		*/
-insert into Voyage (LibelleVoyage, DescriptifVoyage, DateDepartVoyage, DateRetourVoyage, DisponibiliteVoyage, PrixVoyage, RegionID) values ('Virovitica'         , 'Banana banana banana'																															, CONVERT(datetime2(7),'19/12/2023',103), CONVERT(datetime2(7),'19/12/2024',103), 54, 1900    , 14)     /* http://adria-online.com/wp-content/uploads/2016/10/croatia-adriatic-hvar-panorama.jpg')																																													*/
+insert into Voyage (LibelleVoyage, DescriptifVoyage, DateDepartVoyage, DateRetourVoyage, DisponibiliteVoyage, PrixVoyage, RegionID) values ('Virovitica'         , 'Le sentier didactique dans le Bilogora autour de Virovitica est en forme de coeur'															    , CONVERT(datetime2(7),'19/12/2023',103), CONVERT(datetime2(7),'19/12/2024',103), 54, 1900    , 14)     /* http://adria-online.com/wp-content/uploads/2016/10/croatia-adriatic-hvar-panorama.jpg')																																													*/
 insert into Voyage (LibelleVoyage, DescriptifVoyage, DateDepartVoyage, DateRetourVoyage, DisponibiliteVoyage, PrixVoyage, RegionID) values ('Tropea'             , 'Les oranges du coin sont à tomber !'																											, CONVERT(datetime2(7),'09/10/2019',103), CONVERT(datetime2(7),'09/10/2020',103), 4, 650      , 15)     /* http://www.csttropea.it/wp-content/uploads/2015/02/Amantea-2.jpg')																																																		*/
 insert into Voyage (LibelleVoyage, DescriptifVoyage, DateDepartVoyage, DateRetourVoyage, DisponibiliteVoyage, PrixVoyage, RegionID) values ('Amantea'            , 'Vous souhaiterez y vivre pour toujours'																											, CONVERT(datetime2(7),'13/05/2024',103), CONVERT(datetime2(7),'13/05/2025',103), 33, 880     , 15)     /* http://www.italymagazine.com/sites/default/files/le_castella_crotone_calabria_-_italy.jpg.800x400_q85_crop-smart.jpg')																																					*/
 insert into Voyage (LibelleVoyage, DescriptifVoyage, DateDepartVoyage, DateRetourVoyage, DisponibiliteVoyage, PrixVoyage, RegionID) values ('Rome'               , 'Venez profiter du Colisée'																														, CONVERT(datetime2(7),'25/07/2020',103), CONVERT(datetime2(7),'25/07/2021',103), 86, 450     , 16)     /* https://www.vacansoleil.fr/media/filer_public_thumbnails/filer_public/0c/89/0c8972be-80bb-4b75-94ef-9f705f805c47/mediabox_019_rome_angel-bridge_r0020971.jpg__800x400_q85_crop_subject_location-mediabox_019_Rome_angel-bridge_R0020971.jpg_subsampling-2_upscale.jpg')	*/
@@ -92,3 +104,96 @@ insert into Voyage (LibelleVoyage, DescriptifVoyage, DateDepartVoyage, DateRetou
 insert into Voyage (LibelleVoyage, DescriptifVoyage, DateDepartVoyage, DateRetourVoyage, DisponibiliteVoyage, PrixVoyage, RegionID) values ('Hawera'             , 'Ne manquez pas le Safari photo pour découvrir la faune locale'																					, CONVERT(datetime2(7),'09/04/2024',103), CONVERT(datetime2(7),'09/04/2025',103), 31, 2200    , 20)     /* https://i2.wp.com/www.gorillasafaris-uganda.com/wp-content/uploads/2018/05/16-days-uganda-wildlife-safari-holiday-800x400.jpg')																																			*/
 go	
 
+/*==================================================================================================================================================== */
+/****** Object:  INSERTIONS DE CONTENU DANS LA TABLE CLIENT ******/
+/*==================================================================================================================================================== */
+
+
+insert into Client (CiviliteClient, NomClient, PrenomClient, DateNaissanceClient, EmailClient, TelephoneClient, VilleClient) values ('Mlle','Pham','Angèlique'   ,convert(date, '06/08/1978', 103), 'phamcoucou@gmail.com'       ,'1234567891', 'Annecy') 
+insert into Client (CiviliteClient, NomClient, PrenomClient, DateNaissanceClient, EmailClient, TelephoneClient, VilleClient) values ('Mlle','Mandy','Angèlique'  ,convert(date, '23/03/1986', 103), 'mandypimpon@hotmail.com'    ,'4595875654', 'Rouen') 
+insert into Client (CiviliteClient, NomClient, PrenomClient, DateNaissanceClient, EmailClient, TelephoneClient, VilleClient) values ('Mr'  ,'Boutada','Khalil'   ,convert(date, '06/01/1984', 103), 'boutadabouh@gmail.com'      ,'2136548957', 'Montpellier') 
+insert into Client (CiviliteClient, NomClient, PrenomClient, DateNaissanceClient, EmailClient, TelephoneClient, VilleClient) values ('Mme' ,'Lalibi','Imen'      ,convert(date, '26/02/1987', 103), 'lalibihellothere@gmail.com' ,'5456548565', 'Istanbul') 
+insert into Client (CiviliteClient, NomClient, PrenomClient, DateNaissanceClient, EmailClient, TelephoneClient, VilleClient) values ('Mr'  ,'Schawohl','Benjamin',convert(date, '09/01/1986', 103), 'schawohlbenji@gmail.com'    ,'2625487596', 'Lyon') 
+insert into Client (CiviliteClient, NomClient, PrenomClient, DateNaissanceClient, EmailClient, TelephoneClient, VilleClient) values ('Mr'  ,'Godereau','Clément' ,convert(date, '13/06/1986', 103), 'godreaukikou@gmail.com'     ,'9575868123', 'Paris') 
+insert into Client (CiviliteClient, NomClient, PrenomClient, DateNaissanceClient, EmailClient, TelephoneClient, VilleClient) values ('Mr'  ,'Cosseron','Emmanuel',convert(date, '29/10/1979', 103), 'cosserontoto@gmail.com'     ,'1254635875', 'Vienne') 
+insert into Client (CiviliteClient, NomClient, PrenomClient, DateNaissanceClient, EmailClient, TelephoneClient, VilleClient) values ('Mr'  ,'Gendouzi','Ahmed'   ,convert(date, '14/02/1987', 103), 'gendouziguili@gmail.com'    ,'5637894268', 'Venise') 
+insert into Client (CiviliteClient, NomClient, PrenomClient, DateNaissanceClient, EmailClient, TelephoneClient, VilleClient) values ('Mr'  ,'Lagab','Hacene'     ,convert(date, '22/11/1976', 103), 'lagabpouet@gmail.com'       ,'6575698456', 'Lille') 
+insert into Client (CiviliteClient, NomClient, PrenomClient, DateNaissanceClient, EmailClient, TelephoneClient, VilleClient) values ('Mr'  ,'Alashkar','Ali'     ,convert(date, '30/01/1984', 103), 'alashkarheyho@gmail.com'    ,'5987632147', 'Rouen') 
+insert into Client (CiviliteClient, NomClient, PrenomClient, DateNaissanceClient, EmailClient, TelephoneClient, VilleClient) values ('Mr'  ,'Harkat','Amine'     ,convert(date, '25/05/1985', 103), 'harkatmatcha@gmail.com'     ,'5987463214', 'Dieppe') 
+
+
+
+go
+
+/*==================================================================================================================================================== */
+/****** Object:  INSERTIONS DE CONTENU DANS LA TABLE CARTE BANCAIRE ******/
+/*==================================================================================================================================================== */
+
+
+Insert into CarteBancaire (NomCB, NumCB, DateExpCB, CryptoCB) values ('Pham'      ,'1234123412341234', convert(date, '01/09/2019', 103),'236')
+Insert into CarteBancaire (NomCB, NumCB, DateExpCB, CryptoCB) values ('Pham'	  ,'2345234523452345', convert(date, '01/10/2019', 103),'237')
+Insert into CarteBancaire (NomCB, NumCB, DateExpCB, CryptoCB) values ('Mandy'	  ,'3456345634563456', convert(date, '01/11/2019', 103),'238')
+Insert into CarteBancaire (NomCB, NumCB, DateExpCB, CryptoCB) values ('Mandy'	  ,'4567456745674567', convert(date, '01/12/2019', 103),'239')
+Insert into CarteBancaire (NomCB, NumCB, DateExpCB, CryptoCB) values ('Boutada'	  ,'5678567856785678', convert(date, '01/01/2019', 103),'240')
+Insert into CarteBancaire (NomCB, NumCB, DateExpCB, CryptoCB) values ('Boutada'	  ,'6789678967896789', convert(date, '01/02/2020', 103),'245')
+Insert into CarteBancaire (NomCB, NumCB, DateExpCB, CryptoCB) values ('Cosseron'  ,'7890789078907890', convert(date, '01/03/2020', 103),'250')
+Insert into CarteBancaire (NomCB, NumCB, DateExpCB, CryptoCB) values ('Lalibi'	  ,'8901890189018901', convert(date, '01/04/2020', 103),'255')
+Insert into CarteBancaire (NomCB, NumCB, DateExpCB, CryptoCB) values ('Schawohl'  ,'9012901290129012', convert(date, '01/05/2020', 103),'260')
+Insert into CarteBancaire (NomCB, NumCB, DateExpCB, CryptoCB) values ('Godereau'  ,'0123012301230123', convert(date, '01/06/2020', 103),'265')
+Insert into CarteBancaire (NomCB, NumCB, DateExpCB, CryptoCB) values ('Guendouzi' ,'1244124412441244', convert(date, '01/07/2020', 103),'270')
+Insert into CarteBancaire (NomCB, NumCB, DateExpCB, CryptoCB) values ('Lagab'     ,'1245124512451245', convert(date, '01/08/2020', 103),'275')
+Insert into CarteBancaire (NomCB, NumCB, DateExpCB, CryptoCB) values ('Lagab'     ,'1246124612461246', convert(date, '01/09/2020', 103),'280')
+Insert into CarteBancaire (NomCB, NumCB, DateExpCB, CryptoCB) values ('Alashkar'  ,'1247124712471247', convert(date, '01/10/2020', 103),'285')
+Insert into CarteBancaire (NomCB, NumCB, DateExpCB, CryptoCB) values ('Harkat'    ,'1248124812481248', convert(date, '01/11/2020', 103),'290')
+go
+
+/*==================================================================================================================================================== */
+/****** Object:  INSERTIONS DE CONTENU DANS LA TABLE DOSSIER ******/
+/*==================================================================================================================================================== */
+
+
+insert into Dossier (NbVoyageurDossier, NumCB, EmailClient, VoyageID,CarteBancaireID, ClientID) values (3,'1234123412341234','phamcoucou@gmail.com'      ,2,  1 ,    5)
+insert into Dossier (NbVoyageurDossier, NumCB, EmailClient, VoyageID,CarteBancaireID, ClientID) values (2,'5678567856785678','boutadabouh@gmail.com'     ,3 , 5 ,    7)
+insert into Dossier (NbVoyageurDossier, NumCB, EmailClient, VoyageID,CarteBancaireID, ClientID) values (4,'7890789078907890','cosserontoto@gmail.com'    ,7,  7 ,    11)
+insert into Dossier (NbVoyageurDossier, NumCB, EmailClient, VoyageID,CarteBancaireID, ClientID) values (5,'0123012301230123','godreaukikou@gmail.com'    ,8,  10,    4)
+insert into Dossier (NbVoyageurDossier, NumCB, EmailClient, VoyageID,CarteBancaireID, ClientID) values (2,'8901890189018901','lalibihellothere@gmail.com',1,  8 ,    9)
+insert into Dossier (NbVoyageurDossier, NumCB, EmailClient, VoyageID,CarteBancaireID, ClientID) values (1,'1245124512451245','lagabpouet@gmail.com'      ,6,  12,    8)
+insert into Dossier (NbVoyageurDossier, NumCB, EmailClient, VoyageID,CarteBancaireID, ClientID) values (2,'1246124612461246','lagabpouet@gmail.com'      ,8 , 13,    8)
+insert into Dossier (NbVoyageurDossier, NumCB, EmailClient, VoyageID,CarteBancaireID, ClientID) values (2,'4567456745674567','mandypimpon@hotmail.com'   ,1,  4 ,    1)
+go
+
+/*==================================================================================================================================================== */
+/****** Object:  INSERTIONS DE CONTENU DANS LA TABLE VOYAGEUR ******/
+/*==================================================================================================================================================== */
+
+
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Pham'		,'Angèlique'	,convert(date, '06/08/1978', 103),1)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Pham'		,'Angel'		,convert(date, '23/07/1979', 103),1)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Pham'		,'Marie'		,convert(date, '13/01/1980', 103),1)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Boutada'	,'Khalil'		,convert(date, '06/01/1984', 103),2)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Boutada'	,'Miriam'		,convert(date, '05/02/1988', 103),2)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Cosseron'	,'Emmanuel'		,convert(date, '29/10/1979', 103),3)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Cosseron'	,'Léa'			,convert(date, '13/11/1981', 103),3)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Cosseron'	,'Théo'			,convert(date, '01/02/2013', 103),3)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Cosseron'	,'Lukas'		,convert(date, '03/01/2016', 103),3)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Godereau'	,'Clément'		,convert(date, '13/06/1986', 103),4)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Godereau'	,'Julie'		,convert(date, '22/07/1987', 103),4)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Godereau'	,'Pierre'		,convert(date, '06/03/1970', 103),4)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Godereau'	,'Claris'		,convert(date, '05/08/1971', 103),4)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Godereau'	,'Fanny'		,convert(date, '12/05/1977', 103),4)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Lalibi'		,'Imen'			,convert(date, '26/02/1987', 103),5)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Lalibi'		,'Cherif'		,convert(date, '05/07/1985', 103),5)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Lagab'		,'Hacene'		,convert(date, '22/11/1976', 103),6)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Lagab'		,'Hacene'		,convert(date, '22/11/1976', 103),7)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Boaleau'	,'Pauline'		,convert(date, '13/12/1974', 103),7)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Ledieu'		,'Kevin'		,convert(date, '31/01/1990', 103),8)
+Insert into Voyageur (NomVoyageur, PrenomVoyageur, DateNaissanceVoyageur, DossierId) values ('Ledieu'		,'Jordan'		,convert(date, '25/12/1994', 103),8)
+go
+
+/*==================================================================================================================================================== */
+/****** Object:  INSERTIONS DE CONTENU DANS LA TABLE CAMPAGNE ******/
+/*==================================================================================================================================================== */
+
+insert into Campagne (LibelleCampagne, DateDebutCampagne, DateFinCampagne, DescriptifCampagne    ) values ('Les destinations ensoleillées pour Décembre' , CONVERT(datetime2(7),'1/12/2018',103) , CONVERT(datetime2(7),'30/12/2018',103) , 'En recherche de chaleur, choisissez BoVoyage pour réchauffer votre hiver')     																																												
+insert into Campagne (LibelleCampagne, DateDebutCampagne, DateFinCampagne, DescriptifCampagne    ) values ('Les favoris de BoVoyage pour Janvier'        , CONVERT(datetime2(7),'01/01/2019',103), CONVERT(datetime2(7),'31/01/2019',103) , 'Les meilleures ventes de BoVoyage, une réussite certifiée par les meilleurs avis ')    
+insert into Campagne (LibelleCampagne, DateDebutCampagne, DateFinCampagne, DescriptifCampagne    ) values ('Les Nouvelles destinations de Février'       , CONVERT(datetime2(7),'01/02/2019',103), CONVERT(datetime2(7),'28/02/2019',103) , 'Les destinations qui nous tiennent à coeur')   

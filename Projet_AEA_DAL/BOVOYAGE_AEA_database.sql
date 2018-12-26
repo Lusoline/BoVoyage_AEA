@@ -124,7 +124,7 @@ CREATE TABLE [dbo].[Client](
 	[PrenomClient] [nvarchar](50) NOT NULL,
 	[DateNaissanceClient] [date] NOT NULL,
 	[EmailClient] [nvarchar](50) NOT NULL,
-	[TelephoneClient] [int] NOT NULL,
+	[TelephoneClient] [nvarchar](20) NOT NULL,        /****** les numeros étranger sont plus long que 10 caractères ******/
 	[VilleClient] [nvarchar](50) NOT NULL,
  CONSTRAINT [PK_Client] PRIMARY KEY CLUSTERED 
 (
@@ -143,9 +143,9 @@ GO
 CREATE TABLE [dbo].[CarteBancaire](
 	[CarteBancaireID] [bigint] IDENTITY(1,1) NOT NULL,
 	[NomCB] [nvarchar](50) NOT NULL,
-	[NumCB] [int] NOT NULL,
+	[NumCB] [nvarchar](16) NOT NULL,
 	[DateExpCB] [date] NOT NULL,
-	[CryptoCB] [char](4) NOT NULL,						/****** [char](4), [nvarchar](4) NOT NULL ******/
+	[CryptoCB] [nvarchar](3) NOT NULL,						
  CONSTRAINT [PK_CarteBancaire] PRIMARY KEY CLUSTERED 
 (
 	[CarteBancaireID] ASC
@@ -163,7 +163,7 @@ GO
 CREATE TABLE [dbo].[Dossier](
 	[DossierID] [bigint] IDENTITY(1,1) NOT NULL,
 	[NbVoyageurDossier] [int] NOT NULL,
-	[NumCB] [int] NOT NULL,						/****** [char](16) n'a pas été choisi par l'equipe ******/
+	[NumCB] [nvarchar](16) NOT NULL,						
 	[EmailClient] [nvarchar](50) NOT NULL,      /****** champs obligatoire pour la dependance des tables ******/
 	[VoyageID] [bigint] NULL,
 	[CarteBancaireID] [bigint] NULL,
