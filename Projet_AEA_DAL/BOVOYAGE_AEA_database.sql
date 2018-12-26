@@ -8,9 +8,9 @@ GO
 CREATE DATABASE [BOVOYAGE_AEA]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'BOVOYAGE_AEA', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\BOVOYAGE_AEA.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+( NAME = N'BOVOYAGE_AEA', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL14.SQLEXPRESS\MSSQL\DATA\BOVOYAGE_AEA.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
  LOG ON 
-( NAME = N'BOVOYAGE_AEA_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\BOVOYAGE_AEA_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+( NAME = N'BOVOYAGE_AEA_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL14.SQLEXPRESS\MSSQL\DATA\BOVOYAGE_AEA_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
 GO
 
 USE [BOVOYAGE_AEA]
@@ -278,6 +278,9 @@ GO
 /*==================================================================================================================================================== */
 /****** Object:  PROCEDURES STOCKEES ******/
 /*==================================================================================================================================================== */
+/*==================================================================================================================================================== */
+/****** Object:  PROCEDURE STOCKEE LISTE DES CONTINENTS ******/
+/*==================================================================================================================================================== */
 
 
 CREATE PROC GetListeContinents
@@ -288,6 +291,85 @@ SELECT
 from 
 	Continent c 
 Go
+
+/*==================================================================================================================================================== */
+/****** Object:  PROCEDURE STOCKEE LISTE DES PAYS ******/
+/*==================================================================================================================================================== */
+
+CREATE PROC GetListePays(@choixContinentID int = NULL)               /* Pour le moment on doit rentrer un id en parametre, todo optinisera plus tard*/
+AS 
+-- Liste des Pays en fonction du choix de continent
+SELECT
+	p.*   --p.PaysID, p.PaysLibellé
+FROM
+	Pays p
+	inner join Continent c on p.ContinentID = c.ContinentID
+WHERE 
+	@choixContinentID = c.ContinentID
+GO
+
+/*==================================================================================================================================================== */
+/****** Object:  PROCEDURE STOCKEE LISTE DES REGIONS ******/
+/*==================================================================================================================================================== */
+
+CREATE PROC GetListeRegion(@choixPaysID int, @choixContinentID int)       /* Pour le moment on doit rentrer un id en parametre, todo optinisera plus tard*/
+AS 
+-- Liste des régions en fonction du pays choisi
+SELECT
+	r.*-- r.RegionID, r.LibelleRegion
+FROM
+	Region r
+	inner join Pays p on p.PaysID = r.PaysID
+	inner join Continent c on c.ContinentID = p.ContinentID
+WHERE 
+	(c.ContinentID = @choixContinentID) AND (@choixPaysID = 0 OR p.PaysID = @choixPaysID )
+GO
+
+
+
+/*==================================================================================================================================================== */
+/****** Object:  PROCEDURE STOCKEE LISTE DES VOYAGES ******/
+/*==================================================================================================================================================== */
+
+
+CREATE PROC GetListeVoyage(@choixContinentID int, @choixPaysID int, @choixRegionID int)
+AS 
+-- Liste des voyages en fonction de la région choisie.
+if @choixPaysID = 0 set @choixRegionID=0
+SELECT
+			v.*--	v.VoyageID, v.LibelleVoyage, v.DescriptionV
+FROM
+	Voyage v
+	inner join Region r on r.RegionID = v.RegionID
+	inner join Pays p on p.PaysID = r.PaysID
+	inner join Continent c on c.ContinentID = p.ContinentID
+WHERE	
+	(@choixRegionID = 0  OR @choixRegionID = r.RegionID ) AND (@choixPaysID = 0 OR @choixPaysID = p.PaysID ) AND (@choixContinentID = c.ContinentID)
+
+GO
+
+
+
+/*==================================================================================================================================================== */
+/****** FIN DE SCRIPT DATABASE - N'OUBLIER PAS DE LANCER LE SCRIPT BOVOYAGE_AEA_DATA.sql ******/
+/*==================================================================================================================================================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*==================================================================================================================================================== */
 /****** FIN DE SCRIPT DATABASE - N'OUBLIER PAS DE LANCER LE SCRIPT DATA.sql ******/
