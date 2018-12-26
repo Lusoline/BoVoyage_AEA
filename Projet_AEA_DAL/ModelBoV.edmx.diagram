@@ -5,16 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="fcc5101ad47d4e5ba1c67089d0fed8e4" Name="Diagram1">
-        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Campagne" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.CampagneClient" Width="1.5" PointX="3.375" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.CarteBancaire" Width="1.5" PointX="5.625" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Client" Width="1.5" PointX="8.625" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Continent" Width="1.5" PointX="1.5" PointY="15.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Dossier" Width="1.5" PointX="6" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Pay" Width="1.5" PointX="1.5" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Region" Width="1.5" PointX="1.5" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Voyage" Width="1.5" PointX="3.75" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Voyageur" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Campagne" Width="1.5" PointX="0.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.CampagneClient" Width="1.625" PointX="2.625" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.CarteBancaire" Width="1.5" PointX="9" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Client" Width="1.5" PointX="4.875" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Continent" Width="1.5" PointX="0.625" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Dossier" Width="1.5" PointX="6.875" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Pay" Width="1.5" PointX="2.625" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Region" Width="1.5" PointX="4.5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Voyage" Width="1.5" PointX="6.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOVOYAGE_AEAModel.Voyageur" Width="1.5" PointX="9" PointY="5.875" IsExpanded="true" />
         <AssociationConnector Association="BOVOYAGE_AEAModel.FK_CampagneClient_Campagne" ManuallyRouted="false" />
         <AssociationConnector Association="BOVOYAGE_AEAModel.FK_CampagneClient_Client" ManuallyRouted="false" />
         <AssociationConnector Association="BOVOYAGE_AEAModel.FK_Dossier_CarteBancaire" ManuallyRouted="false" />

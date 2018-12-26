@@ -22,7 +22,7 @@ GO
 
 CREATE TABLE [dbo].[Continent](
 	[ContinentID] [bigint] IDENTITY(1,1) NOT NULL,
-	[LibelleContinent] [nvarchar](50) NOT NULL,        /****** PEUT ETRE ON PEUT METTRE NVARCHAR 20 ******/
+	[LibelleContinent] [nvarchar](50) NOT NULL,								 /****** PEUT ETRE ON PEUT METTRE NVARCHAR 20 ******/
  CONSTRAINT [PK_Continent] PRIMARY KEY CLUSTERED 
 (
 	[ContinentID] ASC
@@ -39,7 +39,7 @@ GO
 
 CREATE TABLE [dbo].[Pays](
 	[PaysID] [bigint] IDENTITY(1,1) NOT NULL,
-	[NomP] [nvarchar](50) NULL,							/****** PEUT ETRE ON PEUT METTRE NVARCHAR 20 ******/
+	[LibellePays] [nvarchar](50) NULL,										/****** PEUT ETRE ON PEUT METTRE NVARCHAR 20 ******/
 	[ContinentID] [bigint] NOT NULL,
  CONSTRAINT [PK_Pays] PRIMARY KEY CLUSTERED 
 (
@@ -64,7 +64,7 @@ GO
 
 CREATE TABLE [dbo].[Region](
 	[RegionID] [bigint] IDENTITY(1,1) NOT NULL,
-	[NomR] [nvarchar](20) NULL,
+	[LibelleRegion] [nvarchar](50) NULL,									 /****** PEUT ETRE ON PEUT METTRE NVARCHAR 20 ******/
 	[PaysID] [bigint] NOT NULL,
  CONSTRAINT [PK_Region] PRIMARY KEY CLUSTERED 
 (
@@ -296,11 +296,11 @@ Go
 /****** Object:  PROCEDURE STOCKEE LISTE DES PAYS ******/
 /*==================================================================================================================================================== */
 
-CREATE PROC GetListePays(@choixContinentID int = NULL)               /* Pour le moment on doit rentrer un id en parametre, todo optinisera plus tard*/
+CREATE PROC GetListePays(@choixContinentID int)               /* Pour le moment on doit rentrer un id en parametre, todo optinisera plus tard*/
 AS 
 -- Liste des Pays en fonction du choix de continent
 SELECT
-	p.*   --p.PaysID, p.PaysLibellé
+	p.*   --p.PaysID, p.LibellePays
 FROM
 	Pays p
 	inner join Continent c on p.ContinentID = c.ContinentID
@@ -312,7 +312,7 @@ GO
 /****** Object:  PROCEDURE STOCKEE LISTE DES REGIONS ******/
 /*==================================================================================================================================================== */
 
-CREATE PROC GetListeRegion(@choixPaysID int, @choixContinentID int)       /* Pour le moment on doit rentrer un id en parametre, todo optinisera plus tard*/
+CREATE PROC GetListeRegion(@choixPaysID int, @choixContinentID int)      /* Pour le moment on doit rentrer un id en parametre, todo optinisera plus tard*/
 AS 
 -- Liste des régions en fonction du pays choisi
 SELECT
@@ -353,25 +353,3 @@ GO
 /*==================================================================================================================================================== */
 /****** FIN DE SCRIPT DATABASE - N'OUBLIER PAS DE LANCER LE SCRIPT BOVOYAGE_AEA_DATA.sql ******/
 /*==================================================================================================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*==================================================================================================================================================== */
-/****** FIN DE SCRIPT DATABASE - N'OUBLIER PAS DE LANCER LE SCRIPT DATA.sql ******/
-/*==================================================================================================================================================== */
-
