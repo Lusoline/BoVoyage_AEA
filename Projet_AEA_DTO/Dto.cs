@@ -14,16 +14,16 @@ namespace Projet_AEA_DTO
     public class dtoListePays
     {
         public long PaysID;
-        public string NomP;
+        public string LibellePays;
         public long ContinentID;
     }
-    /*public class dtoListeRegion
+    public class dtoListeRegion
     {
         public long RegionID;
-        public string NomR;
+        public string LibelleRegion;
         public long PaysID;
     }
-    public class dtoListeVoyage
+    /*public class dtoListeVoyage
     {
         public long VoyageID;
         public string LibelleVoyage;
@@ -33,6 +33,7 @@ namespace Projet_AEA_DTO
         public long DisponibiliteVoyage;
         public float PrixVoyage;
         public long RegionID;
+        //public string UrlV; A quoi ça sert????
     }*/
 
 }

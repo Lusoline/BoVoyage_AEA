@@ -3,43 +3,98 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<select id="conti">
-    <option value="-1">Choisissez un continent</option>
-</select>
+<h4>Sélectionnez votre voyage :</h4>
 <br />
-<select id="pays">
-    <option value="-1">Choisissez un pays</option>
-</select>
-<table class="table"></table>
+<div>
+    <select id="cont1" name="Continent" required>
+        <option id="0" value="">--Choisissez votre Continent--</option>
+    </select>
+</div>
+<div>
+    <select id="pay1" name="Pays">
+        <option id="0" value="">--Choisissez votre Pays--</option>
+    </select>
+</div>
+<div>
+    <select id="reg1" name="Région">
+        <option id="0" value="">--Choisissez votre Région--</option>
+    </select>
+</div>
+<div>
+    <select id="voy1" name="Voyage">
+        <option id="0" value="">--Choisissez votre Voyage--</option>
+    </select>
+</div>
+
 @section scripts{
     <script>
         $.ajax({
             type: 'GET',
-            url: 'http://localhost:49964/api/Continent',
+            url: 'http://localhost:49964/api/Zone',                //contentType: 'application/json',
+            dataType: "json",                //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
             success: function (data) {
-                $(data).each(function () {
-                    $('#conti').append('<option value="' + this.ContinentID + '">' + this.LibelleContinent + '</option>')
-                })
+                if (data.length != 0) {
+                    $(data).each(function () {
+                        $('#cont1').append('<option id="' + this.ContinentID + '">' + this.LibelleContinent + '</option>');
+                    })
+                }
             },
-            error: function (xhr, err, msg) {
-                alert('Chargement des continents impossible');
-            }
-        });
-     
-        $.ajax({
-            type: 'GET',
-            url: 'http://localhost:49964/api/Pays',
-            success: function (data) {
-                $(data).each(function () {
-                    $('#pays').append('<option value="' + this.PaysID + '">' + this.LibellePays + '</option>');
-                })
-            },
-            error: function (xhr, err, msg) {
-                alert('Chargement des continents impossible');
+            error: function (xhr, status, error) {
+                $("#message").empty();
+                $("#message").append("Erreur de communication");
             }
         });
 
+            $('#cont1').change(function (data) {
+                var pay = '#pay1';
+                $(pay).empty();
+                $("#message").empty();
+                $(pay).append('<option id="0">Choisir un Pays</option>');
+                var idCont = $("#cont1 option:selected").attr('id');
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://localhost:49964/api/Zone/' + idCont,                //contentType: 'application/json',
+                    dataType: "json",                //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                    success: function (data) {
+
+                        $(data).each(function () {
+                            $(pay).append('<option id="' + this.PaysID + '">' + this.LibellePays + '</option>');
+                        })
+
+                        $(pay).append('<option id="0">Tous les pays</option>');
+                    },
+                    error: function (xhr, status, error) {
+                        $("#message").empty();
+                        $("#message").append("Erreur de communication");
+                    }
+                });
+            });
+
+            $('#pay1').change(function (data) {
+                var reg = '#reg1';
+                $(reg).empty();
+                $("#message").empty();
+                $(reg).append('<option id="0">Choisir une Région</option>');
+                var idCont = $("#cont1 option:selected").attr('id');
+                var idPay = $("#pay1 option:selected").attr('id');
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://localhost:49964/api/Zone/' + idPay + '/' + idCont,                //contentType: 'application/json',
+                    dataType: "json",                //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                    success: function (data) {
+
+                        $(data).each(function () {
+                            $(reg).append('<option id="' + this.RegionID + '">' + this.LibelleRegion + '</option>');
+                        })
+                        $(reg).append('<option id="0">Toutes les régions</option>');
+                    },
+                    error: function (xhr, status, error) {
+                        //  $("#message").html("Erreur de communication");
+                        $("#message").empty();
+                        $("#message").append("Erreur de communication");
+                    }
+                });
+
+            });
     </script>
 }

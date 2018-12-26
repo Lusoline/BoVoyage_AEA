@@ -12,7 +12,13 @@ namespace Projet_AEA_WebApi
     {
         public static void Register(HttpConfiguration config)
         {
-            // Configuration et services de l'API Web
+
+            // Configuration et services API Web
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
+            // Itinéraires de l'API Web
+            config.EnableCors();
+
             // Configurer l'API Web pour utiliser uniquement l'authentification de jeton du porteur.
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
@@ -20,26 +26,17 @@ namespace Projet_AEA_WebApi
             // Itinéraires de l'API Web
             config.MapHttpAttributeRoutes();
 
-            config.Routes.MapHttpRoute(
-            name: "route3",
-            routeTemplate: "api/Pays",
-            defaults: new
-            {
-            controller = "Pays",
-            idContinent = RouteParameter.Optional,
-            }
+            //api/voyage/Pay/Continent/reg
+                config.Routes.MapHttpRoute(
+                name: "DefaultApiVoy",
+                routeTemplate: "api/{controller}/{Pay}/{Continent}/{reg}"
             );
 
-
             config.Routes.MapHttpRoute(
-              name: "route2",
-              routeTemplate: "api/Continent",
-              defaults: new
-              {
-                  controller = "Continent",
-                  idContinent = RouteParameter.Optional,
-              }
-          );
+                name: "DefaultApiReg",
+                routeTemplate: "api/{controller}/{Pay}/{Continent}",
+                defaults: new { id = RouteParameter.Optional }
+            );
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
