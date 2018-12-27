@@ -58,6 +58,11 @@ namespace Projet_AEA_DAL
             }
             return resultat;
         }
-     
+        public static dtoListeVoyage GetVoyage(int id)
+        {
+                Voyage data = BoVContext.Voyages.Where(V => V.VoyageID == id).ToList().FirstOrDefault();
+                dtoListeVoyage voy = new dtoListeVoyage { LibelleVoyage = data.LibelleVoyage, VoyageID = data.VoyageID, DescriptifVoyage = data.DescriptifVoyage, PrixVoyage = data.PrixVoyage.Value, DateDepartVoyage = data.DateDepartVoyage, DateRetourVoyage = data.DateRetourVoyage, DisponibiliteVoyage = data.DisponibiliteVoyage };
+                return voy;          
+        }
     }
 }

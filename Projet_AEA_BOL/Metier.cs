@@ -31,7 +31,11 @@ namespace Projet_AEA_BOL
         {
             return Voyage.GetListeVoyage(idContinent, idPays, idRegion);
         }
- 
+        public static dtoListeVoyage GetVoyage(int id)
+        {
+            return Voyage.GetVoyage(id);
+        }
+
     }
 
     public static class Pays
@@ -66,6 +70,10 @@ namespace Projet_AEA_BOL
         public static IEnumerable<dtoListeVoyage> GetListeVoyage(int idContinent, int idPays, int idRegion)
         {
             return Repository.GetListeVoyage(idContinent, idPays, idRegion);
+        }
+        public static dtoListeVoyage GetVoyage(int id)
+        {
+            return Repository.GetVoyage(id);
         }
     }
 }

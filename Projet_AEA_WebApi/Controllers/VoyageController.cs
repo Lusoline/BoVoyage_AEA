@@ -18,5 +18,9 @@ namespace Projet_AEA_WebApi.Controllers
         {
             return MetierPool.GetListeVoyage(Continent, Pay, reg);
         }
+        public dtoListeVoyage GetVoyage(int id)
+        {
+            return MetierPool.GetVoyage(id);
+        }
     }
 }
