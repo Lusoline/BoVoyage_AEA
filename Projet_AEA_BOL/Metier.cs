@@ -27,10 +27,11 @@ namespace Projet_AEA_BOL
             return Region.GetListeRegion(idPays, idContinent);
         }
 
-        /*public static IEnumerable<dtoListeVoyage> GetListeVoyage()
+        public static IEnumerable<dtoListeVoyage> GetListeVoyage(int idContinent, int idPays, int idRegion)
         {
-            return Voyage.GetListeVoyage();
-        }*/
+            return Voyage.GetListeVoyage(idContinent, idPays, idRegion);
+        }
+ 
     }
 
     public static class Pays
@@ -62,9 +63,9 @@ namespace Projet_AEA_BOL
     public class Voyage
     {
 
-        /*public static IEnumerable<dtoListeVoyage> GetListeVoyage()
+        public static IEnumerable<dtoListeVoyage> GetListeVoyage(int idContinent, int idPays, int idRegion)
         {
-            return Repository.GetListeVoyage();
-        }*/
+            return Repository.GetListeVoyage(idContinent, idPays, idRegion);
+        }
     }
 }

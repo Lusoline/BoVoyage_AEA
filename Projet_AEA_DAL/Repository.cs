@@ -47,9 +47,17 @@ namespace Projet_AEA_DAL
             return resultat;
         }
 
-        /*public static IEnumerable<dtoListeVoyage> GetListeVoyage()
+        public static IEnumerable<dtoListeVoyage> GetListeVoyage(int idContinent, int idPays, int idRegion)
         {
-            throw new NotImplementedException();
-        }*/
+            var data = BoVContext.GetListeVoyage(idContinent, idPays, idRegion);
+
+            var resultat = new List<dtoListeVoyage>();
+            foreach (var lv in data)
+            {
+                resultat.Add(new dtoListeVoyage { VoyageID = lv.VoyageID, LibelleVoyage = lv.LibelleVoyage });
+            }
+            return resultat;
+        }
+     
     }
 }

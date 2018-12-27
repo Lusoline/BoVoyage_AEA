@@ -23,17 +23,17 @@ namespace Projet_AEA_DTO
         public string LibelleRegion;
         public long PaysID;
     }
-    /*public class dtoListeVoyage
+    public class dtoListeVoyage
     {
         public long VoyageID;
         public string LibelleVoyage;
         public string DescriptifVoyage;
         public DateTime DateDepartVoyage;
         public DateTime DateRetourVoyage;
-        public long DisponibiliteVoyage;
-        public float PrixVoyage;
+        public long? DisponibiliteVoyage;
+        public double PrixVoyage;
         public long RegionID;
-        //public string UrlV; A quoi ça sert????
-    }*/
+      
+    }
 
 }

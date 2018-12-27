@@ -21,9 +21,9 @@ namespace Projet_AEA_WebApi.Controllers
         {
             return MetierPool.GetListePays(id);
         }
-        public IEnumerable<dtoListeRegion> GetListeRegion(int idPays, int idContinent)
+        public IEnumerable<dtoListeRegion> GetListeRegion(int Pay, int Continent)
         {
-            return MetierPool.GetListeRegion(idPays, idContinent);
+            return MetierPool.GetListeRegion(Pay, Continent);
         }
     }
 }

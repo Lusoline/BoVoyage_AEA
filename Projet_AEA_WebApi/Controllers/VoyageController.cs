@@ -10,18 +10,13 @@ using System.Web.Http.Cors;
 
 namespace Projet_AEA_WebApi.Controllers
 {
-    /*[EnableCors(origins: "http://localhost:49939", headers: "*", methods: "*")]
+    [EnableCors(origins: "http://localhost:49939", headers: "*", methods: "*")]
     public class VoyageController : ApiController
     {
         //  [Route("api/voyage/Pay/Continent/reg")]
-        public IEnumerable<dtoListeVoyage> Get()
+        public IEnumerable<dtoListeVoyage> Get(int Pay, int Continent, int reg)
         {
-            return MetierPool.GetListeVoyage();
+            return MetierPool.GetListeVoyage(Continent, Pay, reg);
         }
-        public dtoListeVoyage Get()
-        {
-
-            return MetierPool.GetListeVoyage();
-        }
-    }*/
+    }
 }
