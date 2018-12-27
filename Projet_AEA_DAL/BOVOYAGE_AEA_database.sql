@@ -167,7 +167,7 @@ CREATE TABLE [dbo].[Dossier](
 	[EmailClient] [nvarchar](50) NOT NULL,      /****** champs obligatoire pour la dependance des tables ******/
 	[VoyageID] [bigint] NULL,
 	[CarteBancaireID] [bigint] NULL,
-	[MdPClient] [nvarchar](6) NOT NULL,			/***  Ce champs est genere au moment de la creation d'une ligne dossier ***/
+	[MdPClient] [nvarchar](6) NULL,			/***  Ce champs est genere au moment de la creation d'une ligne dossier ***/
 	[ClientID] [bigint] NULL,
  CONSTRAINT [PK_Dossier] PRIMARY KEY CLUSTERED 
 (
@@ -444,7 +444,7 @@ CREATE PROC GetListeClient
 	@NomClient nvarchar(50) = NULL,
 	@PrenomClient nvarchar(50) = NULL,
 	@DateNaissanceClient date = NULL,
-	@TelephoneClient nvarchar(20) = NULL,        /****** les numeros etranger sont plus long que 10 caracteres ******/
+	@TelephoneClient nvarchar(20) = NULL,        /****** les numeros etrangers sont plus long que 10 caracteres ******/
 	@VilleClient nvarchar(50) = NULL
 
 AS 
@@ -494,6 +494,9 @@ AND	(@LibelleCampagne IS NULL OR @LibelleCampagne = ca.LibelleCampagne)
 AND	(@DateDebutCampagne IS NULL OR @DateDebutCampagne = ca.DateDebutCampagne)
 AND	(@DateFinCampagne IS NULL OR @DateFinCampagne = ca.DateFinCampagne)
 GO
+
+
+
 
 /*==================================================================================================================================================== */
 /****** FIN DE SCRIPT DATABASE - N'OUBLIER PAS DE LANCER LE SCRIPT BOVOYAGE_AEA_DATA.sql ******/
