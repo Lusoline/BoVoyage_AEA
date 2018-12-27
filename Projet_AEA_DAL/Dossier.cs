@@ -27,6 +27,7 @@ namespace Projet_AEA_DAL
         public Nullable<long> VoyageID { get; set; }
         public Nullable<long> CarteBancaireID { get; set; }
         public Nullable<long> ClientID { get; set; }
+        public string MdPClient { get; set; }
     
         public virtual CarteBancaire CarteBancaire { get; set; }
         public virtual Client Client { get; set; }

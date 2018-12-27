@@ -64,6 +64,7 @@
           <Property Name="VoyageID" Type="bigint" />
           <Property Name="CarteBancaireID" Type="bigint" />
           <Property Name="ClientID" Type="bigint" />
+          <Property Name="MdPClient" Type="nvarchar" MaxLength="6" />
         </EntityType>
         <EntityType Name="Pays">
           <Key>
@@ -344,6 +345,7 @@
           <Property Name="VoyageID" Type="Int64" />
           <Property Name="CarteBancaireID" Type="Int64" />
           <Property Name="ClientID" Type="Int64" />
+          <Property Name="MdPClient" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CarteBancaire" Relationship="Self.FK_Dossier_CarteBancaire" FromRole="Dossier" ToRole="CarteBancaire" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Dossier_Client" FromRole="Dossier" ToRole="Client" />
           <NavigationProperty Name="Voyage" Relationship="Self.FK_Dossier_Voyage" FromRole="Dossier" ToRole="Voyage" />
@@ -657,6 +659,7 @@
                 <ScalarProperty Name="VoyageID" ColumnName="VoyageID" />
                 <ScalarProperty Name="CarteBancaireID" ColumnName="CarteBancaireID" />
                 <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="MdPClient" ColumnName="MdPClient" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

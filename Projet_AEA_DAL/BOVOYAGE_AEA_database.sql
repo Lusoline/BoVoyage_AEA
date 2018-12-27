@@ -156,19 +156,25 @@ GO
 /*==================================================================================================================================================== */
 /****** Object:  Table [dbo].[Dossier]    Script De la table DOSSIER ******/
 /*==================================================================================================================================================== */
-
 USE [BOVOYAGE_AEA]
+GO
+
+/****** Object:  Table [dbo].[Dossier]    Script Date: 27/12/2018 15:11:51 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Dossier](
 	[DossierID] [bigint] IDENTITY(1,1) NOT NULL,
 	[NbVoyageurDossier] [int] NOT NULL,
-	[NumCB] [nvarchar](16) NOT NULL,						
-	[EmailClient] [nvarchar](50) NOT NULL,      /****** champs obligatoire pour la dependance des tables ******/
+	[NumCB] [nvarchar](16) NOT NULL,
+	[EmailClient] [nvarchar](50) NOT NULL,
 	[VoyageID] [bigint] NULL,
 	[CarteBancaireID] [bigint] NULL,
-	[MdPClient] [nvarchar](6) NOT NULL,			/***  Ce champs est genere au moment de la creation d'une ligne dossier ***/
 	[ClientID] [bigint] NULL,
+	[MdPClient] [nvarchar](6) NULL,
  CONSTRAINT [PK_Dossier] PRIMARY KEY CLUSTERED 
 (
 	[DossierID] ASC
@@ -196,6 +202,7 @@ GO
 
 ALTER TABLE [dbo].[Dossier] CHECK CONSTRAINT [FK_Dossier_Voyage]
 GO
+
 
 /*==================================================================================================================================================== */
 /****** Object:  Table [dbo].[Voyageur]    Script De la table VOYAGEUR ******/
@@ -310,7 +317,7 @@ GO
 /*==================================================================================================================================================== */
 /****** Sans parametres:  La procedure retourne la LISTE DES PAYS													                              ******/
 /****** Avec parametres:                                                                                                                          ******/
-/****** @ContinentID (entier): retourne la LISTE DES PAYS dont l'indentifiant du continent est passe en parametre	                              ******/																							  ******/
+/****** @ContinentID (entier): retourne la LISTE DES PAYS dont l'indentifiant du continent est passe en parametre	                              ******/																							  
 /****** @LibelleContinent(chaine de caractere):  retourne la LISTE DES PAYS dont le nom du continent est passe en parametre	                      ******/				
 /****** @PaysID (entier): retourne la LISTE DES PAYS dont l'indentifiant du pays est passe en parametre	                                          ******/
 /****** @LibellePays(chaine de caractere):  retourne la LISTE DES PAYS dont le nom du pays est passe en parametre	                              ******/	
@@ -342,11 +349,11 @@ GO
 /*==================================================================================================================================================== */
 /****** Sans parametres:  La procedure retourne la LISTE DES REGIONS													                          ******/
 /****** Avec parametres:                                                                                                                          ******/
-/****** @ContinentID (entier): retourne la LISTE DES REGIONS dont l'indentifiant du continent est passe en parametre	                          ******/																							  ******/
+/****** @ContinentID (entier): retourne la LISTE DES REGIONS dont l'indentifiant du continent est passe en parametre	                          ******/																							
 /****** @LibelleContinent(chaine de caractere):  retourne la LISTE DES REGIONS dont le nom du continent est passe en parametre	                  ******/				
 /****** @PaysID (entier): retourne la LISTE DES REGIONS dont l'indentifiant du pays est passe en parametre	                                      ******/
 /****** @LibellePays(chaine de caractere):  retourne la LISTE DES REGIONS dont le nom du pays est passe en parametre	                          ******/
-/****** @RegionID (entier): retourne la LISTE DES REGIONS dont l'indentifiant de la region est passe en parametre	                              ******/																							  ******/
+/****** @RegionID (entier): retourne la LISTE DES REGIONS dont l'indentifiant de la region est passe en parametre	                              ******/																							
 /****** @LibelleRegion(chaine de caractere):  retourne la LISTE DES REGIONS dont le nom de la region est passe en parametre	                      ******/
 /*==================================================================================================================================================== */
 
@@ -380,13 +387,13 @@ GO
 /*==================================================================================================================================================== */
 /****** Sans parametres:  La procedure retourne la LISTE DES VOYAGES													                          ******/
 /****** Avec parametres:                                                                                                                          ******/
-/****** @ContinentID (entier): retourne la LISTE DES VOYAGES dont l'indentifiant du continent est passe en parametre	                          ******/																							  ******/
+/****** @ContinentID (entier): retourne la LISTE DES VOYAGES dont l'indentifiant du continent est passe en parametre	                          ******/																							 
 /****** @LibelleContinent(chaine de caractere):  retourne la LISTE DES VOYAGES dont le nom du continent est passe en parametre	                  ******/				
 /****** @PaysID (entier): retourne la LISTE DES VOYAGES dont l'indentifiant du pays est passe en parametre	                                      ******/
 /****** @LibellePays(chaine de caractere):  retourne la LISTE DES VOYAGES dont le nom du pays est passe en parametre	                          ******/
-/****** @RegionID (entier): retourne la LISTE DES VOYAGES dont l'indentifiant de la region est passe en parametre	                              ******/																							  ******/
+/****** @RegionID (entier): retourne la LISTE DES VOYAGES dont l'indentifiant de la region est passe en parametre	                              ******/																							 
 /****** @LibelleRegion(chaine de caractere):  retourne la LISTE DES VOYAGES dont le nom de la region est passe en parametre	                      ******/
-/****** @VoyageID (entier): retourne la LISTE DES VOYAGES dont l'indentifiant du voyage est passe en parametre	                                  ******/																							  ******/
+/****** @VoyageID (entier): retourne la LISTE DES VOYAGES dont l'indentifiant du voyage est passe en parametre	                                  ******/																							  
 /****** @LibelleVoyage(chaine de caractere):  retourne la LISTE DES VOYAGES dont le nom du voyage est passe en parametre	                      ******/
 /*==================================================================================================================================================== */
 
@@ -426,13 +433,13 @@ GO
 /*==================================================================================================================================================== */
 /****** Sans parametres:  La procedure retourne la LISTE DES CLIENTS													                          ******/
 /****** Avec parametres:                                                                                                                          ******/
-/****** @ClientID (entier): retourne la LISTE DES CLIENTS dont l'indentifiant du client est passe en parametre	                                  ******/																							  ******/
+/****** @ClientID (entier): retourne la LISTE DES CLIENTS dont l'indentifiant du client est passe en parametre	                                  ******/																							 
 /****** @CiviliteClient(chaine de caractere):  retourne la LISTE DES CLIENTS dont la civilite du client est passe en parametre   Mr,Mlle,Mme      ******/				
 /****** @NomClient (chaine de caractere): retourne la LISTE DES CLIENTS dont le nom est passe en parametre	                                      ******/
 /****** @PrenomClient(chaine de caractere):  retourne la LISTE DES CLIENTS dont le prenom est passe en parametre	                              ******/
-/****** @DateNaissanceClient (date): retourne la LISTE DES CLIENTS dont la date de naissance est passe en parametre AAAA-MM-JJ                    ******/																							  ******/
+/****** @DateNaissanceClient (date): retourne la LISTE DES CLIENTS dont la date de naissance est passe en parametre AAAA-MM-JJ                    ******/																							  
 /****** @TelephoneClient(chaine de caractere):  retourne la LISTE DES CLIENTS dont le telephone est passe en parametre	                          ******/
-/****** @VilleClient (chaine de caractere): retourne la LISTE DES CLIENTS dont la Ville est passe en parametre	                                  ******/																							  ******/
+/****** @VilleClient (chaine de caractere): retourne la LISTE DES CLIENTS dont la Ville est passe en parametre	                                  ******/																							  
 /*==================================================================================================================================================== */
 
 USE [BOVOYAGE_AEA]
@@ -468,7 +475,7 @@ GO
 /*==================================================================================================================================================== */
 /****** Sans parametres:  La procedure retourne la LISTE DES CAMPAGNES													                          ******/
 /****** Avec parametres:                                                                                                                          ******/
-/****** @CampagneID (entier): retourne la LISTE DES CAMPAGNES dont l'indentifiant de la Campagne est passe en parametre	                          ******/																							  ******/
+/****** @CampagneID (entier): retourne la LISTE DES CAMPAGNES dont l'indentifiant de la Campagne est passe en parametre	                          ******/																							  
 /****** @LibelleCampagne(chaine de caractere):  retourne la LISTE DES CAMPAGNES dont le libelle de la Campagne est passe en parametre             ******/				
 /****** @DateDebutCampagne (date): retourne la LISTE DES CAMPAGNES dont la date de debut de la Campagne est passe en parametre AAAA-MM-JJ         ******/
 /****** @DateFinCampagne (date): retourne la LISTE DES CAMPAGNES dont la date de fin de la Campagne est passe en parametre AAAA-MM-JJ             ******/

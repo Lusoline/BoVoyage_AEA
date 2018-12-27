@@ -20,5 +20,10 @@ namespace Projet_AEA_UIL.Controllers
             var fd = new FormDossier();        
             return View(fd);
         }
+        public ActionResult ConnexionClient()
+        {
+            var ec = new EspaceClient();
+                return View(ec);
+        }
     }
 }
