@@ -29,9 +29,9 @@
           </Key>
           <Property Name="CarteBancaireID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NomCB" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="NumCB" Type="int" Nullable="false" />
+          <Property Name="NumCB" Type="nvarchar" MaxLength="16" Nullable="false" />
           <Property Name="DateExpCB" Type="date" Nullable="false" />
-          <Property Name="CryptoCB" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="CryptoCB" Type="nvarchar" MaxLength="3" Nullable="false" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -43,7 +43,7 @@
           <Property Name="PrenomClient" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DateNaissanceClient" Type="date" Nullable="false" />
           <Property Name="EmailClient" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="TelephoneClient" Type="int" Nullable="false" />
+          <Property Name="TelephoneClient" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="VilleClient" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Continent">
@@ -59,7 +59,7 @@
           </Key>
           <Property Name="DossierID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NbVoyageurDossier" Type="int" Nullable="false" />
-          <Property Name="NumCB" Type="int" Nullable="false" />
+          <Property Name="NumCB" Type="nvarchar" MaxLength="16" Nullable="false" />
           <Property Name="EmailClient" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="VoyageID" Type="bigint" />
           <Property Name="CarteBancaireID" Type="bigint" />
@@ -70,7 +70,7 @@
             <PropertyRef Name="PaysID" />
           </Key>
           <Property Name="PaysID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NomP" Type="nvarchar" MaxLength="50" />
+          <Property Name="LibellePays" Type="nvarchar" MaxLength="50" />
           <Property Name="ContinentID" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="Region">
@@ -78,7 +78,7 @@
             <PropertyRef Name="RegionID" />
           </Key>
           <Property Name="RegionID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NomR" Type="nvarchar" MaxLength="20" />
+          <Property Name="LibelleRegion" Type="nvarchar" MaxLength="50" />
           <Property Name="PaysID" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="Voyage">
@@ -213,6 +213,18 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="GetListeContinents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetListePays" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="choixContinentID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetListeRegion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="choixPaysID" Type="int" Mode="In" />
+          <Parameter Name="choixContinentID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetListeVoyage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="choixContinentID" Type="int" Mode="In" />
+          <Parameter Name="choixPaysID" Type="int" Mode="In" />
+          <Parameter Name="choixRegionID" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="BOVOYAGE_AEAModelStoreContainer">
           <EntitySet Name="Campagne" EntityType="Self.Campagne" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CampagneClient" EntityType="Self.CampagneClient" Schema="dbo" store:Type="Tables" />
@@ -293,9 +305,9 @@
           </Key>
           <Property Name="CarteBancaireID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NomCB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NumCB" Type="Int32" Nullable="false" />
+          <Property Name="NumCB" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DateExpCB" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="CryptoCB" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CryptoCB" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Dossiers" Relationship="Self.FK_Dossier_CarteBancaire" FromRole="CarteBancaire" ToRole="Dossier" />
         </EntityType>
         <EntityType Name="Client">
@@ -308,7 +320,7 @@
           <Property Name="PrenomClient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DateNaissanceClient" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="EmailClient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TelephoneClient" Type="Int32" Nullable="false" />
+          <Property Name="TelephoneClient" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="VilleClient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="CampagneClients" Relationship="Self.FK_CampagneClient_Client" FromRole="Client" ToRole="CampagneClient" />
           <NavigationProperty Name="Dossiers" Relationship="Self.FK_Dossier_Client" FromRole="Client" ToRole="Dossier" />
@@ -327,7 +339,7 @@
           </Key>
           <Property Name="DossierID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NbVoyageurDossier" Type="Int32" Nullable="false" />
-          <Property Name="NumCB" Type="Int32" Nullable="false" />
+          <Property Name="NumCB" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EmailClient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="VoyageID" Type="Int64" />
           <Property Name="CarteBancaireID" Type="Int64" />
@@ -342,7 +354,7 @@
             <PropertyRef Name="PaysID" />
           </Key>
           <Property Name="PaysID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NomP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LibellePays" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ContinentID" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Continent" Relationship="Self.FK_Pays_Continent" FromRole="Pays" ToRole="Continent" />
           <NavigationProperty Name="Regions" Relationship="Self.FK_Region_Pays" FromRole="Pays" ToRole="Region" />
@@ -352,7 +364,7 @@
             <PropertyRef Name="RegionID" />
           </Key>
           <Property Name="RegionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NomR" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LibelleRegion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PaysID" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Pay" Relationship="Self.FK_Region_Pays" FromRole="Region" ToRole="Pays" />
           <NavigationProperty Name="Voyages" Relationship="Self.FK_Voyage_Region" FromRole="Region" ToRole="Voyage" />
@@ -539,10 +551,42 @@
             <End Role="Voyage" EntitySet="Voyages" />
           </AssociationSet>
           <FunctionImport Name="GetListeContinents" ReturnType="Collection(BOVOYAGE_AEAModel.GetListeContinents_Result)" />
+          <FunctionImport Name="GetListePays" ReturnType="Collection(BOVOYAGE_AEAModel.GetListePays_Result)">
+            <Parameter Name="choixContinentID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetListeRegion" ReturnType="Collection(BOVOYAGE_AEAModel.GetListeRegion_Result)">
+            <Parameter Name="choixPaysID" Mode="In" Type="Int32" />
+            <Parameter Name="choixContinentID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetListeVoyage" ReturnType="Collection(BOVOYAGE_AEAModel.GetListeVoyage_Result)">
+            <Parameter Name="choixContinentID" Mode="In" Type="Int32" />
+            <Parameter Name="choixPaysID" Mode="In" Type="Int32" />
+            <Parameter Name="choixRegionID" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetListeContinents_Result">
           <Property Type="Int64" Name="ContinentID" Nullable="false" />
           <Property Type="String" Name="LibelleContinent" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetListePays_Result">
+          <Property Type="Int64" Name="PaysID" Nullable="false" />
+          <Property Type="String" Name="LibellePays" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="ContinentID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetListeRegion_Result">
+          <Property Type="Int64" Name="RegionID" Nullable="false" />
+          <Property Type="String" Name="LibelleRegion" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="PaysID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetListeVoyage_Result">
+          <Property Type="Int64" Name="VoyageID" Nullable="false" />
+          <Property Type="String" Name="LibelleVoyage" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DescriptifVoyage" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="DateDepartVoyage" Nullable="false" />
+          <Property Type="DateTime" Name="DateRetourVoyage" Nullable="false" />
+          <Property Type="Int64" Name="DisponibiliteVoyage" Nullable="true" />
+          <Property Type="Double" Name="PrixVoyage" Nullable="true" />
+          <Property Type="Int64" Name="RegionID" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -620,7 +664,7 @@
             <EntityTypeMapping TypeName="BOVOYAGE_AEAModel.Pay">
               <MappingFragment StoreEntitySet="Pays">
                 <ScalarProperty Name="PaysID" ColumnName="PaysID" />
-                <ScalarProperty Name="NomP" ColumnName="NomP" />
+                <ScalarProperty Name="LibellePays" ColumnName="LibellePays" />
                 <ScalarProperty Name="ContinentID" ColumnName="ContinentID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -629,7 +673,7 @@
             <EntityTypeMapping TypeName="BOVOYAGE_AEAModel.Region">
               <MappingFragment StoreEntitySet="Region">
                 <ScalarProperty Name="RegionID" ColumnName="RegionID" />
-                <ScalarProperty Name="NomR" ColumnName="NomR" />
+                <ScalarProperty Name="LibelleRegion" ColumnName="LibelleRegion" />
                 <ScalarProperty Name="PaysID" ColumnName="PaysID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -664,6 +708,38 @@
               <ComplexTypeMapping TypeName="BOVOYAGE_AEAModel.GetListeContinents_Result">
                 <ScalarProperty Name="ContinentID" ColumnName="ContinentID" />
                 <ScalarProperty Name="LibelleContinent" ColumnName="LibelleContinent" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetListePays" FunctionName="BOVOYAGE_AEAModel.Store.GetListePays">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BOVOYAGE_AEAModel.GetListePays_Result">
+                <ScalarProperty Name="PaysID" ColumnName="PaysID" />
+                <ScalarProperty Name="LibellePays" ColumnName="LibellePays" />
+                <ScalarProperty Name="ContinentID" ColumnName="ContinentID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetListeRegion" FunctionName="BOVOYAGE_AEAModel.Store.GetListeRegion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BOVOYAGE_AEAModel.GetListeRegion_Result">
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="LibelleRegion" ColumnName="LibelleRegion" />
+                <ScalarProperty Name="PaysID" ColumnName="PaysID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetListeVoyage" FunctionName="BOVOYAGE_AEAModel.Store.GetListeVoyage">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BOVOYAGE_AEAModel.GetListeVoyage_Result">
+                <ScalarProperty Name="VoyageID" ColumnName="VoyageID" />
+                <ScalarProperty Name="LibelleVoyage" ColumnName="LibelleVoyage" />
+                <ScalarProperty Name="DescriptifVoyage" ColumnName="DescriptifVoyage" />
+                <ScalarProperty Name="DateDepartVoyage" ColumnName="DateDepartVoyage" />
+                <ScalarProperty Name="DateRetourVoyage" ColumnName="DateRetourVoyage" />
+                <ScalarProperty Name="DisponibiliteVoyage" ColumnName="DisponibiliteVoyage" />
+                <ScalarProperty Name="PrixVoyage" ColumnName="PrixVoyage" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

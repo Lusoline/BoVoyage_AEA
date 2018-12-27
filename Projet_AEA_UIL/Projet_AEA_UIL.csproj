@@ -134,6 +134,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Scripts\choixVoyage.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -165,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ConnexionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -190,6 +192,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Connexion\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -208,6 +211,10 @@
     <ProjectReference Include="..\Projet_AEA_DTO\Projet_AEA_DTO.csproj">
       <Project>{75404376-f642-4c60-b721-dfc8ae8f2f6c}</Project>
       <Name>Projet_AEA_DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Projet_AEA_WebApi\Projet_AEA_WebApi.csproj">
+      <Project>{7b4dec80-55af-4bf7-8e25-522937fa13a2}</Project>
+      <Name>Projet_AEA_WebApi</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

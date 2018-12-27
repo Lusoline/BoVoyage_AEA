@@ -14,13 +14,13 @@ namespace Projet_AEA_DTO
     public class dtoListePays
     {
         public long PaysID;
-        public string NomP;
+        public string LibellePays;
         public long ContinentID;
     }
-    /*public class dtoListeRegion
+    public class dtoListeRegion
     {
         public long RegionID;
-        public string NomR;
+        public string LibelleRegion;
         public long PaysID;
     }
     public class dtoListeVoyage
@@ -30,9 +30,10 @@ namespace Projet_AEA_DTO
         public string DescriptifVoyage;
         public DateTime DateDepartVoyage;
         public DateTime DateRetourVoyage;
-        public long DisponibiliteVoyage;
-        public float PrixVoyage;
+        public long? DisponibiliteVoyage;
+        public double PrixVoyage;
         public long RegionID;
-    }*/
+      
+    }
 
 }

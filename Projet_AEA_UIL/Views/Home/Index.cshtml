@@ -1,39 +1,38 @@
-﻿@model IEnumerable<Projet_AEA_UIL.Models.Continents>
-
+﻿
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h4>Sélectionnez votre voyage :</h4>
+<br />
+<div>
+    <select id="cont1" name="Continent" required>
+        <option id="0" value="">--Choisissez votre Continent--</option>
+    </select>
+</div>
+<div>
+    <select id="pay1" name="Pays">
+        <option id="0" value="">--Choisissez votre Pays--</option>
+    </select>
+</div>
+<div>
+    <select id="reg1" name="Région">
+        <option id="0" value="">--Choisissez votre Région--</option>
+    </select>
+</div>
+<div>
+    <select id="voy1" name="Voyage">
+        <option id="0" value="">--Choisissez votre Voyage--</option>
+    </select>
+</div>
+<div id="detail">
+    <div id="textDetail"></div>
+    <div id="dateDépart"></div>
+    <div id="dateRetour"></div>
+    <div id="prix"></div>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ContinentID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LibelleContinent)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContinentID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LibelleContinent)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
+@section scripts{
+    @*Exécution des appels Ajax (fichier ChoixVoyage.js) pour récupérer les listes de continents, pays, région et voyage avec leur détails.*@
 }
-
-</table>

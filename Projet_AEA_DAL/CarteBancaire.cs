@@ -22,7 +22,7 @@ namespace Projet_AEA_DAL
     
         public long CarteBancaireID { get; set; }
         public string NomCB { get; set; }
-        public int NumCB { get; set; }
+        public string NumCB { get; set; }
         public System.DateTime DateExpCB { get; set; }
         public string CryptoCB { get; set; }
     
