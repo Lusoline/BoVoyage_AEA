@@ -462,6 +462,37 @@ AND	(@TelephoneClient IS NULL OR @TelephoneClient = c.TelephoneClient)
 AND	(@VilleClient IS NULL OR @VilleClient = c.VilleClient)
 GO
 
+/*==================================================================================================================================================== */
+/****** Object:  PROCEDURE STOCKEE LISTE DES CAMPAGNES                                                                                            ******/
+/*==================================================================================================================================================== */
+/****** Sans paramètres:  La procédure retourne la LISTE DES CAMPAGNES													                          ******/
+/****** Avec paramètres:                                                                                                                          ******/
+/****** @CampagneID (entier): retourne la LISTE DES CAMPAGNES dont l'indentifiant de la Campagne est passé en paramètre	                          ******/																							  ******/
+/****** @LibelleCampagne(chaine de caractère):  retourne la LISTE DES CAMPAGNES dont le libellé de la Campagne est passé en paramètre             ******/				
+/****** @DateDebutCampagne (date): retourne la LISTE DES CAMPAGNES dont la date de debut de la Campagne est passé en paramètre AAAA-MM-JJ         ******/
+/****** @DateFinCampagne (date): retourne la LISTE DES CAMPAGNES dont la date de fin de la Campagne est passé en paramètre AAAA-MM-JJ             ******/
+/*==================================================================================================================================================== */
+
+USE [BOVOYAGE_AEA]
+GO
+
+CREATE PROC GetListeCampagnes
+	@CampagneID bigint = 0 ,
+	@LibelleCampagne nvarchar(50) = NULL,
+	@DateDebutCampagne date = NULL,					
+	@DateFinCampagne date = NULL                  
+AS 
+-- Liste des campagnes
+SELECT
+			ca.*--	ca.@CampagneID, ca.@LibelleCampagne, ca.@DateDebutCampagne,ca.@DateFinCampagne,ca.DescriptifCampagne
+FROM
+	Campagne ca
+WHERE	
+	(@CampagneID = 0 OR @CampagneID = ca.CampagneID)
+AND	(@LibelleCampagne IS NULL OR @LibelleCampagne = ca.LibelleCampagne)
+AND	(@DateDebutCampagne IS NULL OR @DateDebutCampagne = ca.DateDebutCampagne)
+AND	(@DateFinCampagne IS NULL OR @DateFinCampagne = ca.DateFinCampagne)
+GO
 
 /*==================================================================================================================================================== */
 /****** FIN DE SCRIPT DATABASE - N'OUBLIER PAS DE LANCER LE SCRIPT BOVOYAGE_AEA_DATA.sql ******/
