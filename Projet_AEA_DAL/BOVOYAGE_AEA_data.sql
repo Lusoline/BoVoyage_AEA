@@ -13,6 +13,7 @@ insert into Continent (LibelleContinent) values ('Amérique')
 insert into Continent (LibelleContinent) values ('Asie')
 insert into Continent (LibelleContinent) values ('Europe')
 insert into Continent (LibelleContinent) values ('Océanie')
+go
 
 /*==================================================================================================================================================== */
 /****** Object:  INSERTIONS DE CONTENU DANS LA TABLE PAYS ******/

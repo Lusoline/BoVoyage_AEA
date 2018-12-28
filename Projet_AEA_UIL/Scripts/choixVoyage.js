@@ -96,12 +96,15 @@ $('#voy1').change(function (data) {
     var div = '#detail';
     $("#message").empty();
     var idVoy = $("#voy1 option:selected").attr('id');
+  
     $.ajax({
         type: 'GET',
         url: 'http://localhost:49964/api/Voyage/' + idVoy,                //contentType: 'application/json',
         dataType: "json",                //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
         success: function (data) {
-            $(div).html('<div id="textDetail"> Détail :<br /> <br />' + data.DescriptifVoyage + '<br /> <br /></div> <div id="dateDépart"> Date départ : ' + data.DateDepartVoyage + '<br /> <br /></div><div id="dateRetour"> Date de retour : ' + data.DateRetourVoyage + '<br /> <br /> </div><div id="prix"> Prix TTC : ' + data.PrixVoyage + ' € </div>');
+            var DateDepart = data.DateDepartVoyage.substr(0, 10);//DateDepart.format("dd/mm/yyyy") 
+            var DateRetour = data.DateRetourVoyage.substr(0, 10);
+            $(div).html('<div id="textDetail"> Détail :<br /> <br />' + data.DescriptifVoyage + '<br /> <br /></div> <div id="dateDépart"> Date départ : ' + DateDepart + '<br /> <br /></div><div id="dateRetour"> Date de retour : ' + DateRetour + '<br /> <br /> </div><div id="prix"> Prix TTC : ' + data.PrixVoyage + ' € </div>');
         },
         error: function (xhr, status, error) {
             //  $("#message").html("Erreur de communication");
