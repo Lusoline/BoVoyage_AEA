@@ -10,7 +10,7 @@ namespace Projet_AEA_BOL
 {
     public static class MetierPool
     {
-       
+
 
         public static IEnumerable<dtoListePays> GetListePays(int idContinent)
         {
@@ -35,6 +35,14 @@ namespace Projet_AEA_BOL
         {
             return Voyage.GetVoyage(id);
         }
+
+
+
+
+        //public static dtoNouveauDossier EnregistreDossier(dtoNouveauDossier nouveauDossier)
+        //{
+        //    return NewDossier.EnregistreDossier();
+        //}
 
     }
 
@@ -76,4 +84,14 @@ namespace Projet_AEA_BOL
             return Repository.GetVoyage(id);
         }
     }
+
+
+
+    //public class NewDossier
+    //{
+    //    public static dtoNouveauDossier EnregistreDossier(dtoNouveauDossier nouveauDossier)
+    //    {
+    //        return Repository.EnregistreDossier(nouveauDossier);
+    //    }
+    //}
 }

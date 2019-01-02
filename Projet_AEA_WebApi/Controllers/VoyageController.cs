@@ -1,4 +1,5 @@
 ﻿using Projet_AEA_BOL;
+using Projet_AEA_DAL;
 using Projet_AEA_DTO;
 using System;
 using System.Collections.Generic;

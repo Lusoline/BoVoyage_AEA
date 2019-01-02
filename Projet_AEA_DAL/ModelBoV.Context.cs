@@ -81,5 +81,30 @@ namespace Projet_AEA_DAL
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetListeVoyage_Result>("GetListeVoyage", choixContinentIDParameter, choixPaysIDParameter, choixRegionIDParameter);
         }
+    
+        public virtual ObjectResult<Nullable<int>> EnregistreDossier(Nullable<long> idVoyage, string emailClient, string numCBClient, Nullable<int> nbVoyageur, string mdPClient)
+        {
+            var idVoyageParameter = idVoyage.HasValue ?
+                new ObjectParameter("IdVoyage", idVoyage) :
+                new ObjectParameter("IdVoyage", typeof(long));
+    
+            var emailClientParameter = emailClient != null ?
+                new ObjectParameter("EmailClient", emailClient) :
+                new ObjectParameter("EmailClient", typeof(string));
+    
+            var numCBClientParameter = numCBClient != null ?
+                new ObjectParameter("NumCBClient", numCBClient) :
+                new ObjectParameter("NumCBClient", typeof(string));
+    
+            var nbVoyageurParameter = nbVoyageur.HasValue ?
+                new ObjectParameter("NbVoyageur", nbVoyageur) :
+                new ObjectParameter("NbVoyageur", typeof(int));
+    
+            var mdPClientParameter = mdPClient != null ?
+                new ObjectParameter("MdPClient", mdPClient) :
+                new ObjectParameter("MdPClient", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("EnregistreDossier", idVoyageParameter, emailClientParameter, numCBClientParameter, nbVoyageurParameter, mdPClientParameter);
+        }
     }
 }

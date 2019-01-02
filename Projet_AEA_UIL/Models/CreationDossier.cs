@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Projet_AEA_UIL.Models
 {
-    public class FormDossier
+    public class CreationDossier
     {
         public int Id { get; set; }
         [Required]

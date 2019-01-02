@@ -11,8 +11,9 @@ namespace Projet_AEA_UIL.Controllers
         {
             return View();
         }
-        public ActionResult Reserver()
+        public ActionResult Reserver(int idVoy)
         {
+
             return Redirect("http://localhost:49939/Client/CreationDossier");
         }
     }

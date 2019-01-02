@@ -25,6 +25,9 @@
         <option id="0" value="">--Choisissez votre Voyage--</option>
     </select>
 </div>
+<div>
+    <p>Vous avez choisi ce voyage : </p>
+</div>
 <div id="detail">
     <div id="textDetail"></div>
     <div id="dateDépart"></div>
@@ -33,9 +36,9 @@
 
 </div>
 
-@Html.ActionLink("Réserver", "Reserver")
 
 @section scripts{
     @*Exécution des appels Ajax (fichier ChoixVoyage.js) pour récupérer les listes de continents, pays, région et voyage avec leur détails.*@
 }
 
+@Html.ActionLink(linkText: "Réserver", actionName: "Reserver")

@@ -35,5 +35,12 @@ namespace Projet_AEA_DTO
         public long RegionID;
       
     }
-
+    public class dtoNouveauDossier
+    {
+        public int DossierId;
+        public string Email;
+        public string NumCB;
+        public int NbVoyageurs;
+        public int VoyageId;
+    }
 }

@@ -1,5 +1,6 @@
 ﻿using Projet_AEA_BOL;
 using Projet_AEA_DTO;
+using Projet_AEA_DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BOVOYAGE_AEAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BOVOYAGE_AEAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Campagne">
           <Key>
             <PropertyRef Name="CampagneID" />
@@ -213,6 +213,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="EnregistreDossier" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdVoyage" Type="bigint" Mode="In" />
+          <Parameter Name="EmailClient" Type="nvarchar" Mode="In" />
+          <Parameter Name="NumCBClient" Type="char" Mode="In" />
+          <Parameter Name="NbVoyageur" Type="int" Mode="In" />
+          <Parameter Name="MdPClient" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="GetListeContinents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetListePays" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="choixContinentID" Type="int" Mode="In" />
@@ -274,8 +281,7 @@
             <End Role="Voyageur" EntitySet="Voyageur" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BOVOYAGE_AEAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -554,7 +560,7 @@
           </AssociationSet>
           <FunctionImport Name="GetListeContinents" ReturnType="Collection(BOVOYAGE_AEAModel.GetListeContinents_Result)" />
           <FunctionImport Name="GetListePays" ReturnType="Collection(BOVOYAGE_AEAModel.GetListePays_Result)">
-            <Parameter Name="choixContinentID" Mode="In" Type="Int32" />
+          <Parameter Name="choixContinentID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetListeRegion" ReturnType="Collection(BOVOYAGE_AEAModel.GetListeRegion_Result)">
             <Parameter Name="choixPaysID" Mode="In" Type="Int32" />
@@ -564,6 +570,13 @@
             <Parameter Name="choixContinentID" Mode="In" Type="Int32" />
             <Parameter Name="choixPaysID" Mode="In" Type="Int32" />
             <Parameter Name="choixRegionID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="EnregistreDossier" ReturnType="Collection(Int32)">
+            <Parameter Name="IdVoyage" Mode="In" Type="Int64" />
+            <Parameter Name="EmailClient" Mode="In" Type="String" />
+            <Parameter Name="NumCBClient" Mode="In" Type="String" />
+            <Parameter Name="NbVoyageur" Mode="In" Type="Int32" />
+            <Parameter Name="MdPClient" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetListeContinents_Result">
@@ -746,6 +759,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="EnregistreDossier" FunctionName="BOVOYAGE_AEAModel.Store.EnregistreDossier" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

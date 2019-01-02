@@ -1,0 +1,22 @@
+﻿@model Projet_AEA_UIL.Models.ConnexionClient
+
+
+@{
+    ViewBag.Title = "Connexion Client";
+}
+
+<h2>Connexion</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailClient)
+            @Html.TextArea("Votre Email", null, new { @class = "form-control" })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MdPClient)
+            @Html.TextArea("Votre mot de passe", null, new { @class = "form-control" })
+        </th>
+    </tr>
+</table>
+@*Ajouter un form qui accepte la connexion sur le compte et renvoie la page de profil du client + le formulaire voyageur.*@

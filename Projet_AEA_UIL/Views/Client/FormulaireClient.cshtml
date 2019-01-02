@@ -1,0 +1,43 @@
+﻿@model Projet_AEA_UIL.Models.FormulaireClient
+
+@{
+    ViewBag.Title = "FormulaireClient";
+}
+
+<h2>Informations du Client / Espace Personnel</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CivClient)
+            @Html.TextArea("Votre civilité", null, new { @class = "form-control" })
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.NomClient)
+            @Html.TextArea("Votre nom", null, new { @class = "form-control" })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrenomClient)
+            @Html.TextArea("Votre prénom", null, new { @class = "form-control" })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailClient)
+            @Html.TextArea("Votre email", null, new { @class = "form-control" })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateNaissanceClient)
+            @Html.TextArea("Votre date de naissance", null, new { @class = "form-control" })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrenomClient)
+            @Html.TextArea("Votre numéro de téléphone", null, new { @class = "form-control" })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrenomClient)
+            @Html.TextArea("Votre adresse complète", null, new { @class = "form-control" })
+        </th>
+
+
+    </tr>
+</table>
