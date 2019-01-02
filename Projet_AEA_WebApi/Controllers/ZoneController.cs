@@ -11,7 +11,7 @@ using System.Web.Http.Cors;
 
 namespace Projet_AEA_WebApi.Controllers
 {
-    [EnableCors(origins: "http://localhost:49939", headers: "*", methods: "*")]
+    [EnableCors(origins: "http://localhost:62629", headers: "*", methods: "*")]
     public class ZoneController : ApiController
     {
         public IEnumerable<dtoListeContinent> GetContinent()

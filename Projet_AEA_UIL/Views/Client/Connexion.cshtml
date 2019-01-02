@@ -7,16 +7,20 @@
 
 <h2>Connexion</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.EmailClient)
-            @Html.TextArea("Votre Email", null, new { @class = "form-control" })
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MdPClient)
-            @Html.TextArea("Votre mot de passe", null, new { @class = "form-control" })
-        </th>
-    </tr>
-</table>
+@using (Html.BeginForm("VerificationConnexion", "Account", FormMethod.Post))
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailClient)
+                <input type="text" name="reportEmail" />
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MdPClient)
+                <input type="text" name="reportMdPClient" />
+            </th>
+        </tr>
+    </table>
+    <input type="submit" value="Se connecter"/>
+}
 @*Ajouter un form qui accepte la connexion sur le compte et renvoie la page de profil du client + le formulaire voyageur.*@

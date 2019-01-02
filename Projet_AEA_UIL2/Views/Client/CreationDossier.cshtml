@@ -1,0 +1,35 @@
+﻿
+@model Projet_AEA_UIL2.Models.CreationDossier
+    @{
+    ViewBag.Title = "CreationDossier";
+}
+
+<h2>CreationDossier</h2>
+
+@using (Html.BeginForm("EnregistreDossier", "Client", FormMethod.Post))
+{
+    <p>Vous avez choisi le voyage [Voyage] Veuillez renseigner les champs suivant :</p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+                <input type="text" name="reportEmail" />
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumCB)
+                <input type="text" name="reportNumCB" />
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NbVoyageurs)
+                <input type="text" name="reportNbVoyageur" />
+            </th>
+        </tr>
+    </table>
+    <br>
+    <p>
+        Souhaitez-vous souscrire une assurance dans le cas où vous seriez contraint d'annuler votre voyage?
+        <input type="checkbox" name="reportAssuranceAnnulation" />
+    </p>
+    <input type="submit" value="Enregistrer votre réservation" />
+
+}

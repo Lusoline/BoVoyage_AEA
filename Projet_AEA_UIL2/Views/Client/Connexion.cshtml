@@ -1,0 +1,25 @@
+﻿@model Projet_AEA_UIL2.Models.ConnexionClient
+
+
+@{
+    ViewBag.Title = "Connexion Client";
+}
+
+<h2>Connexion</h2>
+
+@using (Html.BeginForm("Index", "EspaceClient", FormMethod.Post))
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailClient)
+                <input type="text" name="reportEmail" />
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MdPClient)
+                <input type="text" name="reportMdPClient" />
+            </th>
+        </tr>
+    </table>
+    <input type="submit" value="Se connecter" />
+}

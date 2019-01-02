@@ -64,5 +64,10 @@ namespace Projet_AEA_DAL
                 dtoListeVoyage voy = new dtoListeVoyage { LibelleVoyage = data.LibelleVoyage, VoyageID = data.VoyageID, DescriptifVoyage = data.DescriptifVoyage, PrixVoyage = data.PrixVoyage.Value, DateDepartVoyage = data.DateDepartVoyage, DateRetourVoyage = data.DateRetourVoyage, DisponibiliteVoyage = data.DisponibiliteVoyage };
                 return voy;          
         }
+        public static int EnregistreDossier(string reportEmail, string reportNumCB, int? reportNbVoyageur)
+        {
+            var resultat = BoVContext.EnregistreDossier(reportEmail, reportNumCB, reportNbVoyageur);
+            return 0;
+        }
     }
 }

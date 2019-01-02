@@ -39,10 +39,10 @@ namespace Projet_AEA_BOL
 
 
 
-        //public static dtoNouveauDossier EnregistreDossier(dtoNouveauDossier nouveauDossier)
-        //{
-        //    return NewDossier.EnregistreDossier();
-        //}
+        public static int EnregistreDossier(string reportEmail, string reportNumCB, int? reportNbVoyageur)
+        {
+            return NewDossier.EnregistreDossier(reportEmail, reportNumCB, reportNbVoyageur);
+        }
 
     }
 
@@ -87,11 +87,11 @@ namespace Projet_AEA_BOL
 
 
 
-    //public class NewDossier
-    //{
-    //    public static dtoNouveauDossier EnregistreDossier(dtoNouveauDossier nouveauDossier)
-    //    {
-    //        return Repository.EnregistreDossier(nouveauDossier);
-    //    }
-    //}
+    public class NewDossier
+    {
+        public static int EnregistreDossier(string reportEmail, string reportNumCB, int? reportNbVoyageur)
+        {
+            return Repository.EnregistreDossier(reportEmail, reportNumCB, reportNbVoyageur);
+        }
+    }
 }

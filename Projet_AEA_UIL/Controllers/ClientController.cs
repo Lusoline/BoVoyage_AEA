@@ -17,14 +17,22 @@ namespace Projet_AEA_UIL.Controllers
         public ClientController()
         {
         }
-        // GET: Connexion
-        public ActionResult EnregistreDossier(string reportEmail, string reportNumCB, int reportNbVoyageur)
+        public ActionResult EnregistreDossier(string reportEmail, string reportNumCB, int? reportNbVoyageur)
         {
+            if (ModelState.IsValid)
+            {
+                MetierPool.EnregistreDossier(reportEmail, reportNumCB, reportNbVoyageur);
+                return Redirect("http://localhost:49939/Client/Connexion");
 
-            return Redirect("http://localhost:49939/Home/Index");
+                // créer un dossier dans la table Dossier de la BDD.
+            }
+            else
+            {
+                return Redirect("http://localhost:49939/Home/Index");
+            }
         }
 
-        public ActionResult CreationDossier(int idVoy)
+        public ActionResult CreationDossier()
         {
             //Création de la vue en se basant sur le model CreationDossier.
             var fd = new CreationDossier();
@@ -38,8 +46,8 @@ namespace Projet_AEA_UIL.Controllers
         [HttpPost]
         public ActionResult FormulaireClient()
         {
-            var formulaireClient = new FormulaireClient();
-            return View(formulaireClient);
+            var fc = new FormulaireClient();
+            return View(fc);
         }
         [HttpPost]
         public ActionResult FormulaireVoyageur(FormulaireVoyageur formulaireVoyageur, string returnUrl)

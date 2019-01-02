@@ -214,11 +214,9 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="EnregistreDossier" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdVoyage" Type="bigint" Mode="In" />
           <Parameter Name="EmailClient" Type="nvarchar" Mode="In" />
           <Parameter Name="NumCBClient" Type="char" Mode="In" />
           <Parameter Name="NbVoyageur" Type="int" Mode="In" />
-          <Parameter Name="MdPClient" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="GetListeContinents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetListePays" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -572,11 +570,9 @@
             <Parameter Name="choixRegionID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="EnregistreDossier" ReturnType="Collection(Int32)">
-            <Parameter Name="IdVoyage" Mode="In" Type="Int64" />
             <Parameter Name="EmailClient" Mode="In" Type="String" />
             <Parameter Name="NumCBClient" Mode="In" Type="String" />
             <Parameter Name="NbVoyageur" Mode="In" Type="Int32" />
-            <Parameter Name="MdPClient" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetListeContinents_Result">

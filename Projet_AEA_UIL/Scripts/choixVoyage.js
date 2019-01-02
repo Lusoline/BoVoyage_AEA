@@ -91,7 +91,7 @@ $('#reg1').change(function (data) {
     });
 });
 
-$('#voy1').change(function (data) {
+$('#voy1').click(function (data) {
     var voy = '#voy1';
     var div = '#detail';
     $("#message").empty();
@@ -103,7 +103,14 @@ $('#voy1').change(function (data) {
         success: function (data) {
             var DateDepart = data.DateDepartVoyage.substr(0, 10);//DateDepart.format("dd/mm/yyyy") 
             var DateRetour = data.DateRetourVoyage.substr(0, 10);
-            $(div).html('<div id="textDetail"> Détail :<br /> <br />' + data.VoyageID + data.DescriptifVoyage + '<br /> <br /></div> <div id="dateDépart"> Date départ : ' + DateDepart + '<br /> <br /></div><div id="dateRetour"> Date de retour : ' + DateRetour + '<br /> <br /> </div><div id="prix"> Prix TTC : ' + data.PrixVoyage + ' € </div>');
+            $(div).html('<div id="idVoy" style="display: none;">'
+                + data.VoyageID + '</div >' + '<div id="textDetail">Vous avez choisi ce voyage :<br /> <br />'
+                + data.LibelleVoyage + '<br /><br />'
+                + data.DescriptifVoyage + '<br /> <br /></div> <div id="dateDépart"> Date départ : '
+                + DateDepart + '<br /> <br /></div><div id="dateRetour"> Date de retour : '
+                + DateRetour + '<br /> <br /> </div><div id="prix"> Prix TTC : '
+                + data.PrixVoyage + ' € </div>'
+            + );
         },
         error: function (xhr, status, error) {
             //  $("#message").html("Erreur de communication");
@@ -113,3 +120,5 @@ $('#voy1').change(function (data) {
     });
 
 });
+
+$('')

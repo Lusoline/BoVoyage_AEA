@@ -657,13 +657,13 @@ GO
 
 
 
-CREATE PROC [dbo].[EnregistreDossier](@IdVoyage bigint, @EmailClient nvarchar(50), @NumCBClient char(16), @NbVoyageur int, @MdPClient nvarchar(6))
+CREATE PROC [dbo].[EnregistreDossier](@EmailClient nvarchar(50), @NumCBClient char(16), @NbVoyageur int)
 AS
 -- Enregistrement d'un nouveau dossier
 BEGIN TRY
 	INSERT INTO 
-		Dossier(VoyageId, EmailClient, NumCB, NbVoyageurDossier, MdPClient) values
-					(@IdVoyage, @EmailClient, @NumCBClient, @NbVoyageur, @MdPClient)
+		Dossier(EmailClient, NumCB, NbVoyageurDossier) values
+					(@EmailClient, @NumCBClient, @NbVoyageur)
 	SELECT
 		1
 END TRY

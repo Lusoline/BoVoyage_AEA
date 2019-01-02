@@ -1,0 +1,21 @@
+﻿@model Projet_AEA_UIL2.Models.ValidationDossier
+@{
+    ViewBag.Title = "ValidationDossier";
+}
+
+<h2>ValidationDossier</h2>
+
+<p>Félicitations votre demande de réservation est enregistrée ! Voici vos identifiants de connexion vous permettant d'accéder à votre profil où vous pourrez compléter les informations nécessaires à votre voyage.</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailClient)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MdPClient)
+          
+        </th>
+    </tr>
+</table>

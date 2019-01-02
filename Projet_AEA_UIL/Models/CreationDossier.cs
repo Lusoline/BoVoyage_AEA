@@ -14,7 +14,8 @@ namespace Projet_AEA_UIL.Models
         public string Email { get; set; }
         [Required]
         public string NumCB { get; set; }
-        [Required]
+        [Required, Range(1, 9,
+            ErrorMessage = "Le nombre de voyageur autorisés va de 1 à 9.")]
         public int NbVoyageurs { get; set; }
     }
 }
