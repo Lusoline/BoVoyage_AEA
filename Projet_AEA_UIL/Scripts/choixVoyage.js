@@ -3,10 +3,10 @@
     url: 'http://localhost:49964/api/Zone',                //contentType: 'application/json',
     dataType: "json",                //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
     success: function (data) {
-        if (data.length != 0) {
+        if (data.length !== 0) {
             $(data).each(function () {
                 $('#cont1').append('<option id="' + this.ContinentID + '">' + this.LibelleContinent + '</option>');
-            })
+            });
         }
     },
     error: function (xhr, status, error) {
@@ -29,7 +29,7 @@ $('#cont1').change(function (data) {
 
             $(data).each(function () {
                 $(pay).append('<option id="' + this.PaysID + '">' + this.LibellePays + '</option>');
-            })
+            });
 
             $(pay).append('<option id="0">Tous les pays</option>');
         },
@@ -55,7 +55,7 @@ $('#pay1').change(function (data) {
 
             $(data).each(function () {
                 $(reg).append('<option id="' + this.RegionID + '">' + this.LibelleRegion + '</option>');
-            })
+            });
             $(reg).append('<option id="0">Toutes les régions</option>');
         },
         error: function (xhr, status, error) {
@@ -82,7 +82,7 @@ $('#reg1').change(function (data) {
         success: function (data) {
             $(data).each(function () {
                 $(voy).append('<option id="' + this.VoyageID + '"   name=' + '  >' + this.LibelleVoyage + '</option>');
-            })
+            });
         },
         error: function (xhr, status, error) {
             $("#message").empty();
@@ -91,7 +91,7 @@ $('#reg1').change(function (data) {
     });
 });
 
-$('#voy1').change(function (data) {
+$('#voy1').click(function (data) {
     var voy = '#voy1';
     var div = '#detail';
     $("#message").empty();
@@ -101,7 +101,16 @@ $('#voy1').change(function (data) {
         url: 'http://localhost:49964/api/Voyage/' + idVoy,                //contentType: 'application/json',
         dataType: "json",                //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
         success: function (data) {
-            $(div).html('<div id="textDetail"> Détail :<br /> <br />' + data.DescriptifVoyage + '<br /> <br /></div> <div id="dateDépart"> Date départ : ' + data.DateDepartVoyage + '<br /> <br /></div><div id="dateRetour"> Date de retour : ' + data.DateRetourVoyage + '<br /> <br /> </div><div id="prix"> Prix TTC : ' + data.PrixVoyage + ' € </div>');
+            var DateDepart = data.DateDepartVoyage.substr(0, 10);//DateDepart.format("dd/mm/yyyy") 
+            var DateRetour = data.DateRetourVoyage.substr(0, 10);
+            $(div).html('<div id="idVoy" style="display: none;">'
+                + data.VoyageID + '</div >' + '<div id="textDetail">Vous avez choisi ce voyage :<br /> <br />'
+                + data.LibelleVoyage + '<br /><br />'
+                + data.DescriptifVoyage + '<br /> <br /></div> <div id="dateDépart"> Date départ : '
+                + DateDepart + '<br /> <br /></div><div id="dateRetour"> Date de retour : '
+                + DateRetour + '<br /> <br /> </div><div id="prix"> Prix TTC : '
+                + data.PrixVoyage + ' € </div>'
+            + );
         },
         error: function (xhr, status, error) {
             //  $("#message").html("Erreur de communication");
@@ -111,3 +120,5 @@ $('#voy1').change(function (data) {
     });
 
 });
+
+$('')

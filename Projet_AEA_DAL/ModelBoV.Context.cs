@@ -81,5 +81,22 @@ namespace Projet_AEA_DAL
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetListeVoyage_Result>("GetListeVoyage", choixContinentIDParameter, choixPaysIDParameter, choixRegionIDParameter);
         }
+    
+        public virtual ObjectResult<Nullable<int>> EnregistreDossier(string emailClient, string numCBClient, Nullable<int> nbVoyageur)
+        {
+            var emailClientParameter = emailClient != null ?
+                new ObjectParameter("EmailClient", emailClient) :
+                new ObjectParameter("EmailClient", typeof(string));
+    
+            var numCBClientParameter = numCBClient != null ?
+                new ObjectParameter("NumCBClient", numCBClient) :
+                new ObjectParameter("NumCBClient", typeof(string));
+    
+            var nbVoyageurParameter = nbVoyageur.HasValue ?
+                new ObjectParameter("NbVoyageur", nbVoyageur) :
+                new ObjectParameter("NbVoyageur", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("EnregistreDossier", emailClientParameter, numCBClientParameter, nbVoyageurParameter);
+        }
     }
 }

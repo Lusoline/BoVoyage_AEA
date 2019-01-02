@@ -1,0 +1,26 @@
+﻿@model Projet_AEA_UIL2.Models.FormulaireVoyageur
+
+@{
+    ViewBag.Title = "FormulaireVoyageur";
+}
+
+<h2>FormulaireVoyageur</h2>
+
+<h2>Informations du Voyageur / Espace Personnel du client</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomVoyageur)
+            @Html.TextArea("Votre nom", null, new { @class = "form-control" })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrenomVoyageur)
+            @Html.TextArea("Votre prénom", null, new { @class = "form-control" })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateNaissanceVoyageur)
+            @Html.TextArea("Votre date de naissance", null, new { @class = "form-control" })
+        </th>
+    </tr>
+</table>
